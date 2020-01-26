@@ -2,7 +2,6 @@ local _ = require 'moses'
 local nn = require 'nn'
 local gnuplot = require 'gnuplot'
 local environ = require 'environ'
-local smash64 = require 'smash64'
 
 -- Set manual seed
 torch.manualSeed(1)
@@ -56,9 +55,8 @@ local results = torch.Tensor(nEpisodes)
 
 -- Sample
 for i = 1, nEpisodes do
-  --TODO: Start new game and load the new game's first state accordingly 
-
-
+  
+  -- Get State from server
 
   -- Experience tuples (s, a, r)
   local E = {}
@@ -83,10 +81,14 @@ for i = 1, nEpisodes do
     local a = environ.A[aIndex]
 
     local oldS = s
-    local oldScore = smash64.score_points
+    local oldScore = -- Get score from server above 
     -- Perform a step
 
     -- Have player perform Action
+
+    -- Send Action to server
+
+    -- Wait and Recieve new state from server
 
     -- Set new s based on new Action
     s = { self_deaths, self_percent, self_x, self_y, self_xvel, self_yvel, 
