@@ -1248,9 +1248,22 @@ end
 function Game.eachFrame()		
 	Game.scoreCompare();
 	
+	Game.updateDat();
+	if(frameCount%300==0) then
+		--Game.printDat();
+	end
+	
+	tcp:send(score_points .. "," .. self_deaths .. "," .. self_percent .. "," .. self_x .. "," .. self_y .. "," .. self_xvel .. "," .. self_yvel .. "," .. self_facing .. "," .. enemy_deaths .. "," .. enemy_percent .. "," .. enemy_x .. "," .. enemy_y .. "," .. enemy_xvel .. "," .. enemy_yvel .. "," .. enemy_facing .. "," .. enemy_name)
+	
+	reception = nil
+	--while (reception == nil) do
+		reception = tcp:receive()
+		--print (reception)
+	--end
+	
 	--local oldS = s
     --local oldScore = smash64.score_points
-	a = nil
+	a = 'A + right full'
 
 	-- Perform Action A[aIndex]
 	--mapping action to actual controller input
@@ -1338,18 +1351,9 @@ function Game.eachFrame()
 		pad_input[a] = true
 	end
 	
-	Game.updateDat();
-	if(frameCount%300==0) then
-		--Game.printDat();
-	end
+	joypad.set(pad_input)
+
 	
-	tcp:send(score_points .. "," .. self_deaths .. "," .. self_percent .. "," .. self_x .. "," .. self_y .. "," .. self_xvel .. "," .. self_yvel .. "," .. self_facing .. "," .. enemy_deaths .. "," .. enemy_percent .. "," .. enemy_x .. "," .. enemy_y .. "," .. enemy_xvel .. "," .. enemy_yvel .. "," .. enemy_facing .. "," .. enemy_name)
-	
-	reception = nil
-	while (reception == nil) do
-		reception = tcp:receive()
-		--print (reception)
-	end
 
 	if ScriptHawk.UI.ischecked("toggle_hitboxes") then
 		Game.hitboxWasChecked = true;
