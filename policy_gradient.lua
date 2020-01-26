@@ -5,7 +5,7 @@ local environ = require 'environ'
 local socket = require 'socket'
 --local os = require 'os'
 
-local server = assert(socket.bind("*", 0))
+local server = assert(socket.bind("*", 51111))
 local ip, port = server:getsockname()
 print("ip:" .. ip)
 print("port:" .. port)
