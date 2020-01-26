@@ -1,0 +1,170 @@
+SystemID N64
+083550	d	s	1	RDRAM	Frame Timer
+083554	d	s	1	RDRAM	Frameskip
+083F10	d	f	1	RDRAM	P1 Joystick X (Normalized)
+083F14	d	f	1	RDRAM	P1 Joystick Y (Normalized)
+083F50	w	h	1	RDRAM	P1 Button Bitfield
+083F52	b	s	1	RDRAM	P1 Joystick X
+083F53	b	s	1	RDRAM	P1 Joystick Y
+083F68	w	h	1	RDRAM	P1 Button Bitfield
+083F6A	b	s	1	RDRAM	P1 Joystick X
+083F6B	b	s	1	RDRAM	P1 Joystick Y
+088DA0	d	h	1	RDRAM	Heap Pointer
+088DA4	d	h	1	RDRAM	Heap Pointer
+11CD2A	w	h	1	RDRAM	Player Model Index
+11CD3A	w	h	1	RDRAM	Player Model Index
+11FA71	b	u	1	RDRAM	Jinjo: MT: Jade Snake Grove
+11FA74	b	u	1	RDRAM	Jinjo: MT: Roof of Stadium
+11FA77	b	u	1	RDRAM	Jinjo: MT: Targitzan's Temple
+11FA7A	b	u	1	RDRAM	Jinjo: MT: Pool of Water
+11FA7D	b	u	1	RDRAM	Jinjo: MT: Bridge
+11FA80	b	u	1	RDRAM	Jinjo: GGM: Water Storage
+11FA83	b	u	1	RDRAM	Jinjo: GGM: Jail
+11FA86	b	u	1	RDRAM	Jinjo: GGM: Toxic Gas Cave
+11FA89	b	u	1	RDRAM	Jinjo: GGM: Boulder
+11FA8C	b	u	1	RDRAM	Jinjo: GGM: Mine Tracks
+11FA8F	b	u	1	RDRAM	Jinjo: WW: Big Top
+11FA92	b	u	1	RDRAM	Jinjo: WW: Cave of Horrors
+11FA95	b	u	1	RDRAM	Jinjo: WW: Van Door
+11FA98	b	u	1	RDRAM	Jinjo: WW: Dodgem Dome
+11FA9B	b	u	1	RDRAM	Jinjo: WW: Cactus of Strength
+11FA9E	b	u	1	RDRAM	Jinjo: JRL: Lagoon Alcove
+11FAA1	b	u	1	RDRAM	Jinjo: JRL: Blubber
+11FAA4	b	u	1	RDRAM	Jinjo: JRL: Big Fish
+11FAA7	b	u	1	RDRAM	Jinjo: JRL: Seaweed Sanctum
+11FAAA	b	u	1	RDRAM	Jinjo: JRL: Sunken Ship
+11FAAD	b	u	1	RDRAM	Jinjo: TDL: Talon Torpedo
+11FAB0	b	u	1	RDRAM	Jinjo: TDL: Cutscene Skip
+11FAB3	b	u	1	RDRAM	Jinjo: TDL: Beside Rocknut
+11FAB6	b	u	1	RDRAM	Jinjo: TDL: Big T. Rex Skip
+11FAB9	b	u	1	RDRAM	Jinjo: TDL: Stomping Plains
+11FABC	b	u	1	RDRAM	Jinjo: GI: Floor 5
+11FABF	b	u	1	RDRAM	Jinjo: GI: Leg Spring
+11FAC2	b	u	1	RDRAM	Jinjo: GI: Toxic Waste
+11FAC5	b	u	1	RDRAM	Jinjo: GI: Boiler Plant
+11FAC8	b	u	1	RDRAM	Jinjo: GI: Outside
+11FACB	b	u	1	RDRAM	Jinjo: HFP: Lava Waterfall
+11FACE	b	u	1	RDRAM	Jinjo: HFP: Boiling Hot Pool
+11FAD1	b	u	1	RDRAM	Jinjo: HFP: Windy Hole
+11FAD4	b	u	1	RDRAM	Jinjo: HFP: Icicle Grotto
+11FAD7	b	u	1	RDRAM	Jinjo: HFP: Mildred Ice Cube
+11FADA	b	u	1	RDRAM	Jinjo: CCL: Trash Can
+11FADD	b	u	1	RDRAM	Jinjo: CCL: Cheese Wedge
+11FAE0	b	u	1	RDRAM	Jinjo: CCL: Central Cavern
+11FAE3	b	u	1	RDRAM	Jinjo: CCL: Mingy Jongo
+11FAE6	b	u	1	RDRAM	Jinjo: CCL: Wumba's
+11FAE9	b	u	1	RDRAM	Jinjo: IoH: Wooded Hollow
+11FAEC	b	u	1	RDRAM	Jinjo: IoH: Wasteland
+11FAEF	b	u	1	RDRAM	Jinjo: IoH: Cliff Top
+11FAF2	b	u	1	RDRAM	Jinjo: IoH: Plateau
+11FAF5	b	u	1	RDRAM	Jinjo: IoH: Spiral Mountain
+11FF7D	b	h	1	RDRAM	HUD Icon (Air)
+11FF95	b	h	1	RDRAM	HUD Icon (Health)
+11FF99	b	u	1	RDRAM	Health (HUD)
+11FFA4	w	s	1	RDRAM	Notes (HUD)
+11FFA8	d	f	1	RDRAM	Notes (HUD)
+11FFB0	w	s	1	RDRAM	Blue Eggs (HUD)
+11FFB4	d	f	1	RDRAM	Blue Eggs (HUD)
+11FFBC	w	s	1	RDRAM	Fire Eggs (HUD)
+11FFC0	d	f	1	RDRAM	Fire Eggs (HUD)
+11FFC8	w	s	1	RDRAM	Ice Eggs (HUD)
+11FFCC	d	f	1	RDRAM	Ice Eggs (HUD)
+11FFD4	w	s	1	RDRAM	Grenade Eggs (HUD)
+11FFD8	d	f	1	RDRAM	Grenade Eggs (HUD)
+11FFE0	w	s	1	RDRAM	CWK Eggs (HUD)
+11FFE4	d	f	1	RDRAM	CWK Eggs (HUD)
+11FFEC	w	s	1	RDRAM	Jiggies (HUD)
+11FFF0	d	f	1	RDRAM	Jiggies (HUD)
+11FFF8	w	s	1	RDRAM	Red Feathers (HUD)
+11FFFC	d	f	1	RDRAM	Red Feathers (HUD)
+120004	w	s	1	RDRAM	Gold Feathers (HUD)
+120008	d	f	1	RDRAM	Gold Feathers (HUD)
+120010	w	s	1	RDRAM	Glowbos (HUD)
+120014	d	f	1	RDRAM	Glowbos (HUD)
+12001C	w	s	1	RDRAM	Empty Honeycombs (HUD)
+120020	d	f	1	RDRAM	Empty Honeycombs (HUD)
+120028	w	s	1	RDRAM	Cheato Pages (HUD)
+12002C	d	f	1	RDRAM	Cheato Pages (HUD)
+120583	b	h	1	RDRAM	BK: Health Icon
+120584	b	u	1	RDRAM	BK: Current Health
+120585	b	u	1	RDRAM	BK: Max Health
+120586	b	h	1	RDRAM	Snowball: Health Icon
+120587	b	u	1	RDRAM	Snowball: Current Health
+120588	b	u	1	RDRAM	Snowball: Max Health
+120592	b	h	1	RDRAM	Bee: Health Icon
+120593	b	u	1	RDRAM	Bee: Current Health
+120594	b	u	1	RDRAM	Bee: Max Health
+120595	b	h	1	RDRAM	Washing Machine: Health Icon
+120596	b	u	1	RDRAM	Washing Machine: Current Health
+120597	b	u	1	RDRAM	Washing Machine: Max Health
+120598	b	h	1	RDRAM	Stony: Health Icon
+120599	b	u	1	RDRAM	Stony: Current Health
+12059A	b	u	1	RDRAM	Stony: Max Health
+12059E	b	h	1	RDRAM	Banjo: Health Icon
+12059F	b	u	1	RDRAM	Banjo: Current Health
+1205A0	b	u	1	RDRAM	Banjo: Max Health
+1205A1	b	h	1	RDRAM	Kazooie: Health Icon
+1205A2	b	u	1	RDRAM	Kazooie: Current Health
+1205A3	b	u	1	RDRAM	Kazooie: Max Health
+1205A4	b	h	1	RDRAM	Submarine: Health Icon
+1205A5	b	u	1	RDRAM	Submarine: Current Health
+1205A6	b	u	1	RDRAM	Submarine: Max Health
+1205A7	b	h	1	RDRAM	Mumbo: Health Icon
+1205A8	b	u	1	RDRAM	Mumbo: Current Health
+1205A9	b	u	1	RDRAM	Mumbo: Max Health
+1205AA	b	h	1	RDRAM	Golden Goliath: Health Icon
+1205AB	b	u	1	RDRAM	Golden Goliath: Current Health
+1205AC	b	u	1	RDRAM	Golden Goliath: Max Health
+1205AD	b	h	1	RDRAM	Detonator: Health Icon
+1205AE	b	u	1	RDRAM	Detonator: Current Health
+1205AF	b	u	1	RDRAM	Detonator: Max Health
+1205B3	b	h	1	RDRAM	CWK: Health Icon
+1205B4	b	u	1	RDRAM	CWK: Current Health
+1205B5	b	u	1	RDRAM	CWK: Max Health
+1205B6	b	h	1	RDRAM	T. Rex: Health Icon
+1205B7	b	u	1	RDRAM	T. Rex: Current Health
+1205B8	b	u	1	RDRAM	T. Rex: Max Health
+12A320	d	f	1	RDRAM	Banjo Brightness Doodad
+12B488	d	h	1	RDRAM	Beginning of Pointer List
+12C350	d	h	1	RDRAM	Text Script Pointer
+12C388	d	f	1	RDRAM	Game Runtime
+12C38C	d	f	1	RDRAM	Map Runtime
+12C390	w	h	1	RDRAM	Map
+12C392	w	h	1	RDRAM	Map Load Trigger
+12C3E0	d	f	1	RDRAM	FOV
+12C478	d	h	1	RDRAM	Camera Pointer Pointer
+12F754	d	f	1	RDRAM	Draw Distance
+12FDC0	d	f	1	RDRAM	Air (Real)
+12FDC4	d	f	1	RDRAM	Air
+12FFC0	d	h	1	RDRAM	Consumables Pointer
+130172	b	h	1	RDRAM	Bottles' Revenge Toggle
+1314F0	d	h	1	RDRAM	Flag Block Pointer
+131524	d	f	1	RDRAM	Game Time (GGM)
+131528	d	f	1	RDRAM	Game Time (MT)
+131530	d	f	1	RDRAM	Game Time (WW)
+131534	d	f	1	RDRAM	Game Time (Spiral Mountain)
+131538	d	f	1	RDRAM	Game Time (JRL)
+13153C	d	f	1	RDRAM	Game Time (TDL)
+131540	d	f	1	RDRAM	Game Time (GI)
+131544	d	f	1	RDRAM	Game Time (HFP)
+131548	d	f	1	RDRAM	Game Time (CCL)
+13154C	d	f	1	RDRAM	Game Time (CK)
+131550	d	f	1	RDRAM	Game Time (Isle o' Hags)
+131570	d	h	1	RDRAM	RNG
+131574	d	h	1	RDRAM	RNG
+131578	d	h	1	RDRAM	RNG
+13157C	d	h	1	RDRAM	RNG
+137B42	w	h	1	RDRAM	Current Map
+13A210	d	h	1	RDRAM	Player Pointer 0
+13A214	d	h	1	RDRAM	Player Pointer 1
+13A218	d	h	1	RDRAM	Player Pointer 2
+13A21C	d	h	1	RDRAM	Player Pointer 3
+13A220	d	h	1	RDRAM	Player Pointer 4
+13A224	d	h	1	RDRAM	Player Pointer 5
+13A228	d	h	1	RDRAM	Player Pointer 6
+13A22C	d	h	1	RDRAM	Player Pointer 7
+13A25F	b	h	1	RDRAM	Player Pointer Index
+13A278	b	h	1	RDRAM	Split up: IsSplit?
+13BBD0	d	h	1	RDRAM	Object Array Pointer
+13BC53	b	u	1	RDRAM	Character State
+

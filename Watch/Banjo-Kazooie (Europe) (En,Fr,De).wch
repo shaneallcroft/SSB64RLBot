@@ -1,0 +1,196 @@
+SystemID N64
+2757DC	d	h	1	RDRAM	Framebuffer Pointer (Copy)
+275A70	d	f	1	RDRAM	FOV
+275A74	d	f	1	RDRAM	Aspect Ratio
+27773C	d	f	1	RDRAM	Culling Angle (Left)
+277740	d	f	1	RDRAM	Culling Angle (Right)
+277748	d	f	1	RDRAM	Culling Angle (Top)
+277750	d	f	1	RDRAM	Culling Angle (Bottom)
+280700	d	s	1	RDRAM	Frame timer
+280704	d	s	1	RDRAM	Frameskip
+2816BA	w	h	1	RDRAM	Music Track
+282E00	d	h	1	RDRAM	Framebuffer Pointer
+283220	w	b	1	RDRAM	Stop'N'Swop Items
+285734	w	b	1	RDRAM	P1 Controller Buttons
+285736	b	s	1	RDRAM	P1 Joystick X
+285737	b	s	1	RDRAM	P1 Joystick Y
+2984FA	w	h	1	RDRAM	Banjo Model Replacement
+2984FE	w	h	1	RDRAM	Banjo Model Replacement
+3226FC	w	h	1	RDRAM	N64 logo skippable (set to 0x1000)
+364E18	d	f	1	RDRAM	Beak Buster Final Velocity
+364E90	d	f	1	RDRAM	Backflip Velocity
+364F04	d	f	1	RDRAM	Talon Trot Velocity
+365140	d	f	1	RDRAM	Jump Velocity
+3651F0	d	f	1	RDRAM	Walking Velocity
+3651F8	d	f	1	RDRAM	Walking Velocity (Slowed)
+366514	w	h	1	RDRAM	Bigbutt Model Replacement
+36672C	w	h	1	RDRAM	Jiggy Model Replacement
+368564	w	h	1	RDRAM	Mumbo's Skull Sign Model Replacement (MM)
+368AA4	w	h	1	RDRAM	Snacker Model Replacement
+36C9A8	w	u	1	RDRAM	Pause Menu Item 1 Y Position
+36C9AA	b	u	1	RDRAM	Pause Menu Item 1 Portrait
+36C9B8	w	u	1	RDRAM	Pause Menu Item 2 Y Position
+36C9BA	b	u	1	RDRAM	Pause Menu Item 2 Portrait
+36C9C8	w	u	1	RDRAM	Pause Menu Item 3 Y Position
+36C9CA	b	u	1	RDRAM	Pause Menu Item 3 Portrait
+36C9D8	w	u	1	RDRAM	Pause Menu Item 4 Y Position
+36C9DA	b	u	1	RDRAM	Pause Menu Item 4 Portrait
+36EAE0	d	h	1	RDRAM	Object Array Pointer
+3723A0	d	f	1	RDRAM	Game Speed Coefficient
+372480	b	h	1	RDRAM	MM Demo Input File Index
+372486	b	h	1	RDRAM	CC Demo Input File Index
+3734D4	w	h	1	RDRAM	Ticker Model Replacement
+379978	d	f	1	RDRAM	Game Speed
+37C930	b	u	1	RDRAM	Player is on ground
+37C931	b	u	1	RDRAM	Player is Swimming
+37C990	d	f	1	RDRAM	Cauldron Activation Position X
+37C994	d	f	1	RDRAM	Cauldron Activation Position Y
+37C998	d	f	1	RDRAM	Cauldron Activation Position Z
+37CABC	d	f	1	RDRAM	Player Scale
+37CAF0	d	f	1	RDRAM	X Disjoint Amount
+37CAF4	d	f	1	RDRAM	Y Disjoint Amount
+37CAF8	d	f	1	RDRAM	Z Disjoint Amount
+37CB04	d	f	1	RDRAM	Unknown Float (Rat-A-Tat Rap)
+37CB08	d	f	1	RDRAM	Unknown Float (Rat-A-Tat Rap)
+37CB14	d	f	1	RDRAM	Unknown Float (Rat-A-Tat Rap)
+37CB18	d	f	1	RDRAM	Unknown Float (Rat-A-Tat Rap)
+37CBA1	b	u	1	RDRAM	Standing on Fly Pad
+37CBA2	b	u	1	RDRAM	Standing on Shock Spring Pad
+37CBB3	b	u	1	RDRAM	Standing on Damaging Ground?
+37CBD0	d	h	1	RDRAM	Floor Object Pointer
+37CC4D	b	u	1	RDRAM	Wall Collisions
+37CC68	d	h	1	RDRAM	Carried Object Pointer
+37CC6C	b	u	1	RDRAM	Carried Object Position Update Toggle
+37CCB4	d	f	1	RDRAM	Slope Timer
+37CD70	d	h	1	RDRAM	Moves Unlocked (Bitfield)
+37CE88	d	f	1	RDRAM	X Velocity
+37CE8C	d	f	1	RDRAM	Y Velocity
+37CE90	d	f	1	RDRAM	Z Velocity
+37CEB8	d	f	1	RDRAM	Gravity
+37CEBC	d	f	1	RDRAM	Terminal Velocity
+37CEC0	d	f	1	RDRAM	Target XZ Velocity
+37CF10	d	f	1	RDRAM	X Rotation - Current
+37CF14	d	f	1	RDRAM	X Rotation - Moving to
+37CF18	d	f	1	RDRAM	X Rotation - Update speed
+37CF70	d	f	1	RDRAM	X Position
+37CF74	d	f	1	RDRAM	Y Position
+37CF78	d	f	1	RDRAM	Z Position
+37CF80	d	f	1	RDRAM	X Position (OOB Detection)
+37CF84	d	f	1	RDRAM	Y Position (OOB Detection)
+37CF88	d	f	1	RDRAM	Z Position (OOB Detection)
+37D040	b	u	1	RDRAM	Player Control Locked
+37D050	d	f	1	RDRAM	Z Rotation - Current
+37D054	d	f	1	RDRAM	Z Rotation - Moving to
+37D058	d	f	1	RDRAM	Z Rotation - Update speed
+37D060	d	f	1	RDRAM	Facing Angle
+37D064	d	f	1	RDRAM	Moving Angle
+37DB30	d	u	1	RDRAM	Previous Movement State
+37DB34	d	u	1	RDRAM	Current Movement State
+37DC06	b	u	1	RDRAM	Kazooie's Legs Visible
+37DC07	b	u	1	RDRAM	Kazooie has Turbo Trainers
+37DC08	b	u	1	RDRAM	Kazooie's Head Visible
+37DC09	b	u	1	RDRAM	Kazooie has Wading Boots
+37DC0C	d	f	1	RDRAM	Eye State (Left)
+37DC10	d	f	1	RDRAM	Eye State (Right)
+37DC80	d	f	1	RDRAM	Ground Pound Bizzo
+37DC84	b	h	1	RDRAM	Ground Pound Bizzo
+37DC85	b	h	1	RDRAM	Ground Pound Bizzo
+37DC86	b	h	1	RDRAM	Ground Pound Bizzo
+37DC87	b	h	1	RDRAM	Ground Pound Bizzo
+37DC8A	b	h	1	RDRAM	Ground Pound Progress
+37DCD0	b	h	1	RDRAM	Flutter Bizzo
+37DCD1	b	h	1	RDRAM	Flutter Bizzo
+37DCD4	d	f	1	RDRAM	Flutter Bizzo
+37DCD8	d	f	1	RDRAM	Flutter Bizzo
+37DD40	d	f	1	RDRAM	Peck Bizzo
+37DD44	b	h	1	RDRAM	Peck Bizzo
+37DD45	b	h	1	RDRAM	Peck Bizzo
+37DD46	b	h	1	RDRAM	Peck Bizzo
+37E578	d	f	1	RDRAM	Camera Y Rotation
+37E680	d	s	1	RDRAM	MM Hut index
+37E784	d	f	1	RDRAM	Jiggy Spawn Angle
+37E788	d	f	1	RDRAM	Jiggy Spawn Velocity
+37E938	d	u	1	RDRAM	Bottles Bonus Puzzle Index
+37F2B4	d	h	1	RDRAM	Demo State
+37F2B8	d	f	1	RDRAM	Game Time
+37F2C0	d	f	1	RDRAM	Map Time
+37F2C4	b	h	1	RDRAM	Map Load State
+37F2C5	b	h	1	RDRAM	Map
+37F2C6	b	h	1	RDRAM	Exit
+3814B0	d	h	1	RDRAM	Print List Pointer
+382970	d	h	1	RDRAM	Struct Array Pointer
+383A00	d	h	1	RDRAM	"Return to Game" Pointer
+383A04	d	h	1	RDRAM	"Return to Lair" Pointer
+383A08	d	h	1	RDRAM	"View Totals" Pointer
+383A0C	d	h	1	RDRAM	"Save and Quit" Pointer
+383A60	b	h	1	RDRAM	"Return to Lair" Enabled
+383AC0	d	h	1	RDRAM	FF Question Pointer
+383B38	b	h	1	RDRAM	Language
+383B91	w	h	1	RDRAM	Cauldron Bitfield
+383B9C	b	u	1	RDRAM	FF Completed (0=no,64=yes)
+383BA2	w	h	1	RDRAM	FF Pattern
+383CC0	d	h	1	RDRAM	Honeycomb Bitfield
+383D08	b	h	1	RDRAM	Sandcastle Water State
+383D64	d	f	1	RDRAM	Text Timer
+386910	d	s	1	RDRAM	Hourglass timer Value
+386914	d	s	1	RDRAM	Evil hourglass timer Value
+386918	d	s	1	RDRAM	Unknown timer Value
+38691C	d	s	1	RDRAM	RBB Fan timer Value
+386920	d	s	1	RDRAM	Unknown timer Value
+386928	d	s	1	RDRAM	Hourglass Active
+38692C	d	s	1	RDRAM	Evil hourglass Active
+386930	d	s	1	RDRAM	Unknown timer Active
+386934	d	s	1	RDRAM	RBB Fan timer Active
+386938	d	s	1	RDRAM	Unknown timer Active
+38693C	d	s	1	RDRAM	FP Tree timer Active (crashes)
+386940	d	s	1	RDRAM	Notes (on hand)
+386944	d	s	1	RDRAM	Eggs
+38694C	d	s	1	RDRAM	Red Feathers
+386950	d	s	1	RDRAM	Gold Feathers
+38695B	b	b	1	RDRAM	Jinjo Bitfield
+386960	d	s	1	RDRAM	Health
+386964	d	s	1	RDRAM	Health Containers
+386968	d	s	1	RDRAM	Lives
+38696C	d	s	1	RDRAM	Air
+386980	d	s	1	RDRAM	Mumbo Tokens
+3869A4	d	s	1	RDRAM	Mumbo Tokens (on hand)
+3869A8	d	s	1	RDRAM	Jiggies (on hand)
+3869D1	b	u	1	RDRAM	Note Score (MM)
+3869D2	b	u	1	RDRAM	Note Score (TTC)
+3869D3	b	u	1	RDRAM	Note Score (CC)
+3869D4	b	u	1	RDRAM	Note Score (BGS)
+3869D5	b	u	1	RDRAM	Note Score (FP)
+3869D7	b	u	1	RDRAM	Note Score (GV)
+3869D8	b	u	1	RDRAM	Note Score (CCW)
+3869D9	b	u	1	RDRAM	Note Score (RBB)
+3869DA	b	u	1	RDRAM	Note Score (MMM)
+3869E4	d	f	1	RDRAM	Game Time (MM)
+3869E8	d	f	1	RDRAM	Game Time (TTC)
+3869EC	d	f	1	RDRAM	Game Time (CC)
+3869F0	d	f	1	RDRAM	Game Time (BGS)
+3869F4	d	f	1	RDRAM	Game Time (FP)
+3869F8	d	f	1	RDRAM	Game Time (GL)
+3869FC	d	f	1	RDRAM	Game Time (GV)
+386A00	d	f	1	RDRAM	Game Time (CCW)
+386A04	d	f	1	RDRAM	Game Time (RBB)
+386A08	d	f	1	RDRAM	Game Time (MMM)
+386A0C	d	f	1	RDRAM	Game Time (SM)
+386AB4	d	h	1	RDRAM	Demo Input Pointer
+386AB8	d	u	1	RDRAM	Demo Input Current Frame
+386ABC	d	u	1	RDRAM	Demo Input Total Frames
+386AC0	d	h	1	RDRAM	RNG
+386AC4	d	h	1	RDRAM	RNG
+386AC8	d	h	1	RDRAM	RNG
+386ACC	d	h	1	RDRAM	RNG
+386AD0	d	h	1	RDRAM	RNG
+386AD4	d	h	1	RDRAM	RNG
+386AF0	d	u	1	RDRAM	Demo Map Index
+38A300	w	h	1	RDRAM	Chimpy's Stump Model Replacement
+38A37C	w	h	1	RDRAM	Conga Model Replacement
+38A3B4	w	h	1	RDRAM	Orange Model Replacement
+38A49C	w	h	1	RDRAM	Grublin Model Replacement
+38A4F4	w	h	1	RDRAM	Ju-Ju Model Replacement
+38CF64	w	h	1	RDRAM	Nipper Model Replacement
+38D00C	w	h	1	RDRAM	Sharkfood Island Model Replacement
+394150	b	h	1	RDRAM	FF Board Start
+

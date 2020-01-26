@@ -1,0 +1,156 @@
+I'm starting to see the bigger picture with DK64's memory layout.
+There's several huge linked lists in memory that start after executable code ~0x060000-0x080000 (moves around in each map with a pointer in global memory to locate it).
+The lists contain objects from model 1 (actors, enemy, player etc) and model 2 (simpler stuff, GBs, CBs, dynamic level geometry, lighting).
+It also contains the DKTV HUD overlay.
+Objects from both model 1 and model 2 use bone arrays to render however bone displacement appears to happen only in model 1, possibly because objects in model 2 rarely have as many bones as actors from model 1
+Objects from model 3 (butterflies, fish etc) are in the first linked list somewhere, there's a global pointer to an object that describes them.
+Objects from model 3 also use bone arrays to render.
+Loading zones and cutscene triggers are also in the first linked list, with a global pointer to an array of them.
+All global variables that doesn't change location in memory (moves, consumables, map, character and tons of pointers) are later in memory, 0x700000+ which is right at the end of the expansion pak.
+
+TODO stuff:
+
+Make the fly swatter hitbox the size of the entire barrel or just cave and write a bot
+Find movement angle (ie what direction are you currently moving, not necessarily facing)
+More info about the camera:
+
+TJ: I believe the camera has a set amount of time to reach your kong and its speed adjusts according to the distance.
+In that respect, it explains why N64 camera follows through STVW and VC does not.
+I kind of just thought of that randomly, it makes sense to me.
+Is there anything in memory that would indicate the correct or incorrectness of that statement?
+
+sound addresses
+0x79126E to 0x7E0000
+
+--------------
+-- Mad Jack --
+--------------
+
+T = Ticks til next action
+R = Actions remaining
+A = Action type
+P = Current position
+N = Next position
+W = White switch position
+B = Blue switch position
+
+NTSC-U MJ state object layout
+
+  0 1 2 3  4 5 6 7  8 9 A B  C D E F
+0 ........ ........ ........ ........
+1 ........ ........ ........ ........
+2 ........ ........ ........ ..TT....
+3 ........ ........ ........ ........
+4 ........ ........ ........ ........
+5 ........ ........ RRAA.... ........
+6 PPNN.... WWBB.... ........ ........
+7 ........ ........ ........ ........
+
+Europe/Japan MJ state object layout
+
+  0 1 2 3  4 5 6 7  8 9 A B  C D E F
+0 ........ ........ ........ ........
+1 ........ ........ ........ ........
+2 ........ ..TT.... ........ ........
+3 ........ ........ ........ ........
+4 ........ ........ ........ ........
+5 ........ ........ ........ ........
+6 RRAA.... ........ PPNN.... W?B?....
+7 ........ ........ ........ ........
+
+------------------------
+-- Quick kill science --
+------------------------
+
+Dogadon 1 mystery menu fight cutscenes
+0 -> idk
+
+2 -> cutscene played as barrel hits
+3 -> Standard dogadon gets hit into lava
+
+9 -> Final dogadon 1 hit (plays on "Dogawrongkey" and spawns key 5 for some reason)
+11 -> Long intro to fight
+20 -> Short intro to fight
+
+Normal hit: x -> 2 -> 3
+Last hit:   x -> 9
+DDQ:        x -> 9
+
+Diddy Control State
+-> 49 (Knockback?) -> 12
+
+Dogadon 2 mystery menu fight cutscenes
+1 -> Long intro to fight
+3 -> Dogadon gets hit into lava
+5 -> Firewall
+7 -> Lower ground
+9 -> Final dogadon 2 hit
+
+Normal hit: x -> 3
+
+FF FF FF FF
+^
+Switches work
+      ^
+      Boss object deals damage
+
+Fight controller object?
+
+00 Player has been hit (switch)
+
+20 Starting fight?
+	0C Idle?
+
+23 In jump phase
+	01 Calculate next jump?
+	02 In the air
+	03 Landing?
+
+25 waiting for hit
+	00 Spawn switches
+	01 Throw fireballs/lasers
+
+27 Been hit
+
+28 Play laser cutscene
+
+29 Turning invisible
+
+2B Waiting for tiny to get back on stage (phase reset?)
+
+37 End fight
+	00 Play boss end cutscene (key spawn not required)
+	01 Quick kill (play boss cutscene and spawn key)
+	04 Spawn key
+	>04 Don't spawn key
+
+40 Destroy boss object?
+	05 Destroy boss object?
+
+Aztec controller object
+
+Freezing certain bytes in Aztec fight controller causes Barrel and Diddy to flash when Diddy takes damage
+Could this be part of the quick kill?
+
+FD0 Start controller object
+04C Barrel X
+050 Barrel Y
+054 Barrel Z
+
+Relative to dogadon object
+b10
+
+0x144 - Freezing causes quick kill to fail
+0x145 - ??
+
+0x154 - Freezing causes key not to spawn
+0x155 - Freezing causes key not to spawn
+
+-------------------
+-- Sync settings --
+-------------------
+
+countperop,vi refresh rate,ai count per byte
+1,5000,5000=17.53
+1,1500,600 =59.86 (music was out of sync)
+1,1500,750 =59.92 (music was closer to sync but stopped too early)

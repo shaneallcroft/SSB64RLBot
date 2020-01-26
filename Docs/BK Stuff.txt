@@ -1,0 +1,442 @@
+BK Science TODO
+
+Explain "Object Teleportation" https://www.youtube.com/watch?v=wJODJbpZYq8
+
+Boggy rubberband science
+	- First race speeds range between 575 and 780
+	- Second race speed is fixed at 1200
+
+Figure out RNG
+	- RNG Values (4 bytes each) at (US 1.0):
+		0x3860E0 - Changes every physics frame
+			- FF Question Portraits
+			- Enemy Movement
+		0x3860E4 - Changes every physics frame
+			- FF Question Portraits
+			- Enemy Movement
+		0x3860E8 - Changes every physics frame
+			- FF Question Portraits
+			- Enemy Movement
+		0x3860EC
+		0x3860F0
+		0x3860F4
+
+When 0x3860E4 is 0x00, permit termite action
+When 0x3860E9 is 0x4C, force termite blink
+
+RNG examples:
+
+GV Rings
+Turtle patterns
+Yumblies/Grumblies
+
+enemy placement
+the direction and velocity that the purple guy spawns out of the hut in mumbos mountain
+conga beating his chest
+chimpy jumping up and down (can delay text)
+MAYBE the way he throws an extra orange when jumping off the tree (sometimes seemingly randomly lands on the final pad and saves a bit of time, but could be changed by banjo's movement)
+which way the honeycombs spawn out of the beehives
+jinjo waving
+
+i thought camera angle affected enemy movement but I don't think it does
+i spent a while trying to manipulate the colliwobble and had no luck
+my only other idea was to move banjo closer to the wall in hopes of "spawning" the colliwobble earlier so his movement cycles earlier
+but whenever i had ideal movement, he was far away from where i wanted to go
+what I'm stuck on right now is trying to get the termite in MM closer to the 4 notes on the little hill before bottles talon trot, but going through the loading zone on different frames doesnt seem to change anything unless I wait a REALLY long time then he BOLTS over to the 4 notes
+
+would it also be possible with a calculation of some sort to figure out if a certain jump is possible
+You could probably do some math with DY and DXZ
+theres a jump thats like one frame away from being possible with my knowledge and if it is it would save 20 seconds
+
+gobi's valley ring RNG is determined upon the frame you enter the level
+usually anything that is random is determined when you enter the area that it occurs
+like in BT klungo potions are done the same way
+BUT an exception to this is i think enemies have certain set patterns because when I was doing my RBB TAS, the enemies would always move in a certain pattern when I enter the room for the first time
+same thing happens on console
+it can't return to the initial position so when you go through it, it can spawn in 4 different places for the next one, then 3, then 2, then 1
+assuming you stay in the main area of the level
+if you enter a loading zone it resets to the initial position by the jinxy paw
+but the game keeps track of how many rings you have gone through
+until you leave the level entirely
+
+----------------------------
+-- Boggy race state stuff --
+----------------------------
+
+Pointer at 0x36E560 to Boggy Race state object
+
+0x60 Flag slots each 0x180 bytes long in memory starting at 0x08
+
+----------------------
+-- Vile state stuff --
+----------------------
+
+Follow Pointer at 0x36E560 to the current map's object array
+
+Addresses below are relative to this array
+TODO: Improve detection for object types in this array
+
+0x90 Game type? (also changes winning/losing message)
+	Blank Banjo text shows up sometimes
+		- Can cancel with A
+		- Stays on screen after cancel
+	Soggy text shows up sometimes
+		- Crashes after 3 characters (ooo)
+0x91 Previous game type (unsigned char)
+0x92 Player Score (unsigned char)
+0x93 Vile Score (unsigned char)
+0x94 Minigame timer (float)
+
+25 slots each 0x180 bytes long in memory starting at 0x318
+
+0x318 Slot state
+	- 00000 0x00 disabled
+	- 00100 0x04 idle
+	- 01000 0x08 rising
+	- 01100 0x0C alive
+	- 10000 0x10 falling (no eat)
+	- 10100 0x14 eaten
+
+Falling state (not eaten)
+0x0C -> 0x10 -> 0x04
+
+Falling state (eaten)
+0x0C -> 0x14 -> 0x04
+
+0x384 Amount "popped out" (0-1, float)
+0x388 Yumbly/Grumbly (0x00 yum, 0x01 grum)
+0x38C Slot timer (0-15? float)
+
+0x2A0C Vile X Position
+0x2A14 Vile Z Position
+0x2A58 Vile Rotation
+0x2AA8 Vile Speed (rubberbanding)
+	- Round 1 varies from 160 to 360
+	- Round 2 varies from 180 to 405
+	- Round 3 varies from 200 to 450
+	- Round 4 varies from 180 to 405
+	- Round 5 varies from 190 to 427.5
+	- Round 6 varies from 200 to 450
+	- Vile chasing you varies from 100 to 500
+	- Vile running from you varies from 300 to 400
+
+----------------
+-- Misc state --
+----------------
+
+Moves unlocked:
+
+0x37CEA0 (Japan)
+0x37CD70 (Europe)
+0x37C3A0 (US 1.0)
+0x37B5A0 (US 1.1)
+
+It's a bitfield, 4 bytes
+TODO: Do the unused bytes save in EEPROM?
+
+Common states
+
+00 00 00 00 - No Moves
+00 00 9D B9 - SM 100%
+00 0B FD BF - FFM Setup (no eggs, no red feathers, no gold feathers)
+00 0F FF FF - Legit 100%
+FF FF FF FF - Used during demos
+
+8- -- -- -- ??
+4- -- -- -- ??
+2- -- -- -- ??
+1- -- -- -- ??
+-8 -- -- -- ??
+-4 -- -- -- ??
+-2 -- -- -- ??
+-1 -- -- -- ??
+-- 8- -- -- ??
+-- 4- -- -- ??
+-- 2- -- -- ??
+-- 1- -- -- ??
+-- -8 -- -- First time note door molehill seen
+-- -4 -- -- Wonderwing
+-- -2 -- -- Turbo Trainers
+-- -1 -- -- Talon Trot
+-- -- 8- -- Dive
+-- -- 4- -- Wading Boots
+-- -- 2- -- Shock Spring Jump
+-- -- 1- -- Roll
+-- -- -8 -- Rat-a-tat rap
+-- -- -4 -- Hold A to Jump higher
+-- -- -2 -- Fly
+-- -- -1 -- Flap Flip
+-- -- -- 8- Feathery Flap
+-- -- -- 4- Eggs
+-- -- -- 2- Climb Trees
+-- -- -- 1- Bear Punch
+-- -- -- -8 Seen camera controls tutorial? Also set after talking to high bottles
+-- -- -- -4 Beak Buster
+-- -- -- -2 Beak Bomb
+-- -- -- -1 Beak Barge
+
+-----------------------
+-- Stop'N'Swop state --
+-----------------------
+
+Located at:
+
+0x282240 (Japan)
+0x283220 (Europe)
+0x283400 (US 1.0)
+0x282240 (US 1.1)
+
+2 bytes, bitfield
+
+Bitfield layout:
+
+0x00     0x01
+yrgbpciY RGBPCI??
+
+y = Yellow egg available
+r = Red egg available
+g = Green egg available
+b = Blue egg available
+p = Sharkfood island raised (Pink egg available)
+c = Cyan egg available
+i = Ice Key available
+Y = Yellow egg collected
+
+R = Red egg collected
+G = Green egg collected
+B = Blue egg collected
+P = Pink egg collected
+C = Cyan egg collected
+I = Ice Key collected
+
+Last 2 bits are currently unknown
+TODO: Are they saved to EEPROM?
+
+Common states:
+
+All locked    0x0000
+All available 0xFE00
+All collected 0xFFFC
+
+---------------------------------
+-- Pause menu portrait indices --
+---------------------------------
+
+0x00 Crash -> Grunty
+0x01 Crash -> Vile
+0x02 Crash -> Vile
+0x03 Crash -> Vile
+0x04 Banjo
+0x05 Grunty
+0x06 Jiggy
+0x07 Tooty
+0x08 Crash -> Note
+0x09 Jiggy
+0x0A Crash -> Empty Honeycomb
+0x0B Clock
+0x0C Crash -> Banjo
+0x0D Crash -> Kazooie
+0x0E Crash -> Kazooie
+0x0F Crash -> Bottles
+
+0x10 Crash -> Mumbo
+0x11 Crash -> Chimpy
+0x12 Crash -> Conga
+0x13 Crash -> Blubber
+0x14 Crash -> Nipper
+0x15 Crash -> Clanker
+0x16 Crash -> Snippet
+0x17 Crash -> Vile
+0x18 Crash -> Tiptup
+0x19 Crash -> Turtle
+0x1A Crash -> BGS frog thing what the heck are they called?
+0x1B Crash -> Trunker
+0x1C Crash -> GV Snake charmer guy
+0x1D Crash -> Gobi
+0x1E Crash -> Slappa
+0x1F Crash -> MMM Nappa?
+
+0x20 Crash -> Yellow Jinjo
+0x21 Crash -> Green Jinjo
+0x22 Crash -> Blue Jinjo
+0x23 Crash -> Pink/Purple Jinjo (it's pink shut up)
+0x24 Crash -> Orange Jinjo
+0x25 Crash -> Note
+0x26 Crash -> Mumbo Token
+0x27 Crash -> Egg
+0x28 Crash -> Red Feather
+0x29 Crash -> Gold Feather
+0x2A Crash -> Chimpy's Orange
+0x2B Crash -> Blubber's Gold
+0x2C Crash -> Full Honeycomb
+0x2D Crash -> Empty Honeycomb
+0x2E Crash -> Extra Life
+0x2F Crash -> Jiggy
+
+0x30 Crash -> Beehive
+0x31 Crash -> Turbo Trainers
+0x32 Crash -> Wading Boots (idk if that's the right name)
+0x33 Crash -> Pirhana (how 2 spel?)
+0x34 Crash -> Termite
+0x35 Crash -> Ju-Ju
+0x36 Crash -> Clam
+0x37 Crash -> Treasure Chest (pound the X)
+0x38 Crash -> Leaky
+0x39 Crash -> Gloop
+0x3A Crash -> Tiptup?
+0x3B Crash -> Snacker
+0x3C Crash -> Jinxy? whatever the sphinx is called
+0x3D Crash -> Worm doodad
+0x3E Crash -> RBB Dolphin?
+0x3F Crash -> Jinxy's ring dudes?
+
+0x40 Crash -> BGS Croc (green eye)
+0x41 Crash -> Grunty
+0x42 Crash -> Tooty
+0x43 Crash -> Boggy
+0x44 Crash -> Wozza
+0x45 Crash -> Mozhand
+0x46 Crash -> Tumblar?
+0x47 Crash -> GV Mummy bloke?
+0x48 Crash -> Blue Present
+0x49 Crash -> Green slug thing? WTF is this??
+0x4A Crash -> FP Ice (water)
+0x4B Crash -> Blue Twinkly
+0x4C Crash -> Twinkly Eater?
+0x4D Crash -> Gnawty
+0x4E Crash -> (Boss?) Boom Box
+0x4F Crash -> Zubba?
+
+0x50 Crash -> Nabnut? (whatever the squirrel is called)
+0x51 Crash -> Soggy? (one of Boggy's kids)
+0x52 Crash -> Some bird dude
+0x53 Crash -> Some bird dude
+0x54 Crash -> Some bird dude
+0x55 Crash -> Eeryie (how 2 spel?)
+0x56 Crash -> Cauldron (grey)
+0x57 Crash -> Brentilda
+0x58 Crash -> Tooty
+0x59 Crash -> red'n'black crab dude (what's his name?)
+0x5A Crash -> Loggo
+0x5B Crash -> Cheato
+0x5C Crash -> Green Present
+0x5D Crash -> Red Present
+0x5E Crash -> Klungo
+0x5F Crash -> Sexy Grunty
+
+0x60 Crash -> Ugly Tooty
+0x61 Crash -> Banjo
+0x62 Crash -> Kazooie
+0x63 Crash -> Tooty
+0x64 Crash -> Dingpot
+0x65 Crash -> Crocodile (Banjo)
+0x66 Crash -> Grunty
+0x67 Crash -> Treasure Chest
+0x68 Completely crashed BizHawk
+0x69 Completely froze BizHawk
+0x6A Crash
+0x6B Crash -> Empty
+0x6C Crash
+0x6D Crash
+0x6E Completely froze BizHawk
+0x6F Crash
+
+0x70 Crash (menu partially opened)
+0x71 Completely froze BizHawk
+
+0x72 - 0xFF Untested
+
+------------------------
+-- Roll Flutter stuff --
+------------------------
+
+"down"  0, -1 = camera rot
+"right" 1, 0 = (camera rot + 90) % 360
+"up"    0, 1 = (camera rot + 180) % 360
+"left" -1, 0 = (camera rot + 270) % 360
+
+         Up 180
+Left 270        Right 90
+         Down 0
+
+Camera = 90
+Target = 180
+
+"hold right"
+
+1, 0
+
+(270 - 90) % 360 = 180
+
+------------------------
+-- EEPROM Save format --
+------------------------
+
+----------+----------------------+-------------------------
+Range     | Description          | Data Type
+----------+----------------------+-------------------------
+0x00-0x01 | Slot in use?         | 16 bit unsigned int
+0x02-0x0E | Unknown              | Unknown
+0x0F-0x11 | Honeycombs collected | 24 bit bitfield
+0x22-0x29 | Note Scores          | 7  bit unsigned int * 9
+0x2A-0x3F | Game time            | 16 bit unsigned int * 11
+0x3E-0x63 | Unknown              | Unknown
+0x64      | Mumbo Tokens on hand | 8  bit unsigned int
+0x65-0x67 | Unknown              | Unknown
+0x68      | Jiggies on hand      | 8  bit unsigned int
+0x69-0x6C | Moves learned        | 32 bit bitfield
+0x6D-0x73 | Unknown              | Unknown
+0x74-0x77 | Checksum             | 32 bit unsigned int
+
+Honeycombs collected bitfield layout
+
+........ BccTTmmB RCCGGFFR SSSSSMMS
+
+S=SM
+m=Mumbo's
+T=TTC
+c=Clanker's
+B=BGS
+F=FP
+G=GV
+M=MMM
+R=RBB
+C=CCW
+
+--------------------
+-- Cauldron stuff --
+--------------------
+
+Is this part of the EEPROM save file in RAM?
+Changing the value updates something close to it that looks like a checksum
+
+0x3831B1 USA 1.0
+0x3823D1 USA 1.1
+0x383B91 Europe
+0x383CF1 Japan
+
+.4.. .... .... .... - Red CCW Lobby
+..2. .... .... .... - Red near CC Lobby
+...1 .... .... .... - Green RBB Lobby
+.... 8... .... .... - Green FP Lobby
+.... .4.. .... .... - Pink FP Lobby
+.... ..2. .... .... - Pink near TTC/CC Puzzles
+.... .... .... .4.. - Gold 810 room
+.... .... .... ..2. - Gold FF room
+
+81383B91 6004 PAL
+
+Lives:
+8038696B 0007
+
+--------------------
+-- Jinjo bitfield --
+--------------------
+
+???Y POGB
+
+B = Blue collected
+G = Green collected
+O = Oranged collected
+P = Pink/Purple collected
+Y = Yellow collected

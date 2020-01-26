@@ -1,0 +1,63 @@
+----------------------------------------
+-- Writing your own ScriptHawk module --
+----------------------------------------
+
+ScriptHawk was designed to be modular by nature. It should be very easy to support new games by writing a ScriptHawk module using the following API.
+To make writing a module easier, I have included a blank module template with stubs for these methods called "blank.lua".
+Modules must be located in the games subdirectory of the ScriptHawk folder.
+
+---------------------------
+-- ScriptHawk Module API --
+---------------------------
+
+Game -- Table containing all information and functions about a game that are visible to ScriptHawk
+
+	function Game.detectVersion(romName, romHash) -- Used to set up version specific memory addresses or flags. Should return true if the version is supported, false if not
+
+	Game.takeMeThereType -- String: Values "Button" or "Checkbox", defaults to "Checkbox" if not present
+	Game.maps -- Table containing strings that populate the "Take Me There" dropdown box provided by ScriptHawk, ordered by in game value
+	function Game.setMap(value) -- This function will be executed when "Take Me There" is activated, either every frame by Checkbox, or once by Button
+
+	Game.speedy_speeds -- A table defining all values available for D-Pad speeds
+	Game.speedy_index -- The index of the default D-Pad speed, in the above table
+	Game.rotSpeed
+	Game.max_rot_units
+
+	function Game.isPhysicsFrame() -- Return false if physics weren't computed on this frame, true if they were.
+								   -- Sometimes it's just a wrapper for emu.islagged()
+								   -- Game modules can omit their own implementation if all that's required is emu.islagged()
+
+	function Game.getPosition() -- Return table of axis + value pairs
+
+		function Game.getXPosition()
+		function Game.getYPosition()
+		function Game.getZPosition() -- Optional, 2D games don't need to implement this
+
+	function Game.setPosition(x, y, z) -- ScriptHawk.lua provides a simple method which calls Game.setXPosition(x), Game.setYpositon(y) and Game.setZPosition(z)
+									   -- I might update this to support passing in a table in the future
+
+		function Game.setXPosition(value)
+		function Game.setYPosition(value)
+		function Game.setZPosition(value) -- Optional, 2D games don't need to implement this
+
+	function Game.getRotation() -- Return table of axis + value pairs
+
+		function Game.getXRotation() -- Pitch
+		function Game.getYRotation() -- Yaw - Facing direction - See https://en.wikipedia.org/wiki/Aircraft_principal_axes
+		function Game.getZRotation() -- Roll
+
+	function Game.setRotation(x, y, z) -- ScriptHawk.lua provides a simple method which calls Game.setXRotation(x), Game.setYRotaton(y) and Game.setZRotation(z)
+									   -- I might update this to support passing in a table in the future
+
+		function Game.setXRotation(value)
+		function Game.setYRotation(value)
+		function Game.setZRotation(value)
+
+	function Game.initUI() -- Initialize any custom UI (for example, form buttons) that the module desires here
+	function Game.applyInfinites() -- Refill consumables
+	function Game.eachFrame() -- This function will be executed at the start of each frame of emulation.
+	function Game.realTime() -- This function will be executed as fast as the emulator can execute it. Useful for UI/OSD that should function while paused.
+
+	Game.OSDPosition -- Table containing the X, Y position of the OSD
+	Game.OSD -- Table containing labels and functions that populate the OSD
+	Game.OSDRowHeight -- The height of a single OSD row (passed to gui.text)
