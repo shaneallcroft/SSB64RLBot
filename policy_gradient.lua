@@ -3,6 +3,7 @@ local nn = require 'nn'
 local gnuplot = require 'gnuplot'
 local environ = require 'environ'
 local socket = require 'socket'
+--local os = require 'os'
 
 -- Set manual seed
 torch.manualSeed(1)
@@ -27,8 +28,8 @@ local eps = 1e-20
 local beta = 0.01
 
 PATH = "smashModel.pt"
-local net
-if os.isfile(PATH) then
+local net = nil
+if os.path.isdir(PATH) then
   net = torch.load(PATH)
 else
 
@@ -89,9 +90,12 @@ for i = 1, nEpisodes do
     -- Send Action to server
     client:send(a)
     -- Wait and Recieve new state from server
-    local line = client:recieve()
+    line = nil
+    while line ~= nil do
+      line = client:recieve()
     -- Set new s based on new Action
     s = split(line, ',')
+    newScore = table.remove(s)
     -- Score based on how well the action performed
     local r = environ.calculateReward(newScore, oldScore) -- r comes from score function f(s)
 
