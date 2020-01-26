@@ -1,0 +1,80 @@
+How to use the Object Analysis Tools
+
+These tools allow you to list and examine details about the currently loaded objects.
+This guide was originally written for DK64, but the keybinds apply to several games.
+
+"List" shows all currently loaded objects from that model
+"Examine" shows all known details about the currently selected object
+
+Keyboard shortcuts:
+
+c = Cycle mode
+v = Grab an object (only works when examining/listing object model 1)
+b = Focus the camera on an object (only works when examining/listing object model 1)
+n = Previous object
+m = Next object
+z = Zip to selected object, works with both model 1 and model 2
+
+Model 1 contains Actors, for example:
+	- Player
+	- Camera
+	- Enemies, Bosses, and NPC's
+	- Blueprints & Kasplats
+	- Boss keys (except Key 8)
+	- Banana Fairies
+	- Bonus Barrels
+	- K. Rool Barrels
+	- Tag Barrels
+	- Kong specific barrels & crates
+	- Objects you can carry
+		- Boulders
+		- Barrels
+		- Kegs
+	- Cannons & Vines
+	- Rainbow coin pads
+	- Cutscene and Bonus Barrel controllers
+	- Text Boxes
+	- Loading zone controller
+	- Fake Kongs (caged, DK Rap, test room, cutscenes)
+	- Balloons
+
+Model 2 contains lighter weight objects, for example:
+	- Gold Bananas
+	- Colored Bananas (singles & bunches)
+	- Key 8
+	- Banana coins
+	- Ammo crates
+	- Crystal coconuts
+	- Bananaporters
+	- Instrument pads
+	- Kong Specific Pads
+	- Bullet switches
+	- Simian Slam switches
+	- Gorilla Grab levers
+
+Even on maps with no Model 2 objects loaded, eg. main menu, the game still allocates the object model 2 array with a minimum capacity of 450 objects or 0x90 * 450 or 0xFD20
+Larger maps, eg. Japes, have object model 2 array sizes over 450
+
+It is currently unknown where the following objects are stored:
+- Butterflies
+- Fish
+- etc etc
+
+Butterflies use standard bone arrays to render
+
+Model 3 documentation
+Training grounds there is an object of size 0x60 (0x433A00, may change) containing:
+	- Group Type (0x00)
+		- 0x02 = Fish
+		- 0x03 = Butterflies
+	- Number of members (0x02)
+	- Unknown Pointer (0x04)
+	- Pointer to bone array (0x08)
+
+Stuff you can toggle with the lua console:
+
+encircle_enabled (boolean) - Circles objects from the currently selected object model around the player, warning: crashy & laggy
+rat_enabled (boolean) - Sets the animation timers for the player randomly
+hide_non_scripted (boolean) - Hides model 2 objects without special behavior scripts
+
+I'll probably add UI for this stuff in the future.

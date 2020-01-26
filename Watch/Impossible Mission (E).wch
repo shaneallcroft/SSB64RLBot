@@ -1,0 +1,36 @@
+SystemID SMS
+0097	b	h	0	Main RAM	Current Map Index
+0098	b	u	0	Main RAM	Horizontal Map Position
+0099	w	u	0	Main RAM	Elevator Y
+00A5	b	u	0	Main RAM	Memory Selected
+00B5	b	u	0	Main RAM	Lift Resets
+00B6	b	u	0	Main RAM	Snoozes
+00B7	b	u	0	Main RAM	Snooze Cooldown Timer
+00C7	b	u	0	Main RAM	Tile Arrow Selected
+00C8	b	u	0	Main RAM	Tile Arrow Selected
+00CA	b	h	0	Main RAM	Hours
+00CB	b	h	0	Main RAM	Minutes
+00CC	b	h	0	Main RAM	Seconds
+00CD	b	u	0	Main RAM	Centiseconds
+0180	b	u	0	Main RAM	Player X
+0181	b	u	0	Main RAM	Player Y
+0186	b	u	0	Main RAM	Player Facing Direction
+1B12	d	h	1	Main RAM	Puzzle Solution 0 Rotation & Colour
+1B16	d	h	1	Main RAM	Puzzle Solution 1 Rotation & Colour
+1B1A	d	h	1	Main RAM	Puzzle Solution 2 Rotation & Colour
+1B1E	d	h	1	Main RAM	Puzzle Solution 3 Rotation & Colour
+1B22	d	h	1	Main RAM	Puzzle Solution 4 Rotation & Colour
+1B26	d	h	1	Main RAM	Puzzle Solution 5 Rotation & Colour
+1B2A	d	h	1	Main RAM	Puzzle Solution 6 Rotation & Colour
+1B2E	d	h	1	Main RAM	Puzzle Solution 7 Rotation & Colour
+1B32	d	h	1	Main RAM	Puzzle Solution 8 Rotation & Colour
+1B36	d	h	1	Main RAM	Puzzle Memory 0-3 Piece
+1B3A	d	h	1	Main RAM	Puzzle Memory 4-7 Piece
+1B3E	d	h	1	Main RAM	Puzzle Memory 8-11 Piece
+1B42	d	h	1	Main RAM	Puzzle Memory 12-15 Piece
+1B46	d	h	1	Main RAM	Puzzle Memory 16-19 Piece
+1B4A	d	h	1	Main RAM	Puzzle Memory 20-23 Piece
+1B4E	d	h	1	Main RAM	Puzzle Memory 24-27 Piece
+1B52	d	h	1	Main RAM	Puzzle Memory 28-31 Piece
+1B56	d	h	1	Main RAM	Puzzle Memory 32-35 Piece
+

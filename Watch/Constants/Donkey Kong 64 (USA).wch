@@ -1,0 +1,221 @@
+SystemID N64
+00EFD2	w	u	1	RDRAM	Scanlines Per Frame
+010134	d	h	1	RDRAM	Framebuffer Pointer
+010138	d	h	1	RDRAM	Render Mode Pointer
+010164	d	h	1	RDRAM	Framebuffer Pointer
+010168	d	h	1	RDRAM	Render Mode Pointer
+0337DC	d	h	1	RDRAM	DK ? Color (Main Menu)
+0337E0	d	h	1	RDRAM	Diddy ? Color (Main Menu)
+0337E4	d	h	1	RDRAM	Lanky ? Color (Main Menu)
+0337E8	d	h	1	RDRAM	Tiny ? Color (Main Menu)
+0337EC	d	h	1	RDRAM	Chunky ? Color (Main Menu)
+5FF2D8	d	h	1	RDRAM	JAL to void out function
+678050	b	h	1	RDRAM	loadActor() function start?
+68A840	d	h	1	RDRAM	JAL to spawnEnemies()
+6E234B	b	h	1	RDRAM	Freeze at 3 for infinite shots out
+6E2492	w	h	1	RDRAM	Chunky Shot SFX
+6E24D6	w	h	1	RDRAM	Lanky Shot SFX
+6E250A	w	h	1	RDRAM	Tiny Shot SFX
+6E253A	w	h	1	RDRAM	DK Shot SFX
+6E256A	w	h	1	RDRAM	Diddy Shot SFX
+6EAC74	d	h	1	RDRAM	STVW Write, 0 to patch
+6F33E6	w	h	1	RDRAM	Lanky Long Arms Map Index
+6F33E8	d	h	1	RDRAM	Lanky Long Arms Map Check (0 for any map)
+744700	w	u	1	RDRAM	Japes Boss Door Destination
+744702	w	u	1	RDRAM	Aztec Boss Door Destination
+744704	w	u	1	RDRAM	Factory Boss Door Destination
+744706	w	u	1	RDRAM	Galleon Boss Door Destination
+744708	w	u	1	RDRAM	Fungi Boss Door Destination
+74470A	w	u	1	RDRAM	Caves Boss Door Destination
+74470C	w	u	1	RDRAM	Castle Boss Door Destination
+74470E	w	u	1	RDRAM	Isles Boss Door Destination
+744710	w	u	1	RDRAM	Helm Boss Door Destination
+744712	w	u	1	RDRAM	Bonus Boss Door Destination
+744714	w	u	1	RDRAM	Multiplayer Boss Door Destination
+744716	w	u	1	RDRAM	Cutscene Boss Door Destination
+744718	w	u	1	RDRAM	Test Map Boss Door Destination
+74471A	w	u	1	RDRAM	Global Boss Door Destination
+746344	w	h	1	RDRAM	Footstep SFX
+74634A	w	h	1	RDRAM	Footstep SFX
+746350	w	h	1	RDRAM	Footstep SFX
+746356	w	h	1	RDRAM	Footstep SFX
+74635C	w	h	1	RDRAM	Footstep SFX
+746362	w	h	1	RDRAM	Footstep SFX
+746368	w	h	1	RDRAM	Footstep SFX
+74636E	w	h	1	RDRAM	Footstep SFX
+746374	w	h	1	RDRAM	Footstep SFX
+74637A	w	h	1	RDRAM	Footstep SFX
+746380	w	h	1	RDRAM	Footstep SFX
+746392	w	h	1	RDRAM	Footstep SFX
+7502E4	d	f	1	RDRAM	Orange Y Acceleration
+7530B0	w	u	1	RDRAM	DK Invulnerability Timer
+7530B2	w	u	1	RDRAM	Diddy Invulnerability Timer
+7530B4	w	u	1	RDRAM	Lanky Invulnerability Timer
+7530B6	w	u	1	RDRAM	Tiny Invulnerability Timer
+7530B8	w	u	1	RDRAM	Chunky Invulnerability Timer
+7530BA	w	u	1	RDRAM	Krusha Invulnerability Timer
+7530BC	w	u	1	RDRAM	Rambi Invulnerability Timer
+7530D0	w	u	1	RDRAM	DK Invulnerability Timer
+7530D2	w	u	1	RDRAM	Diddy Invulnerability Timer
+7530D4	w	u	1	RDRAM	Lanky Invulnerability Timer
+7530D6	w	u	1	RDRAM	Tiny Invulnerability Timer
+7530D8	w	u	1	RDRAM	Chunky Invulnerability Timer
+7530DA	w	u	1	RDRAM	Krusha Invulnerability Timer
+7530DC	w	u	1	RDRAM	Rambi Invulnerability Timer
+753160	w	u	1	RDRAM	DK Invulnerability Timer
+753162	w	u	1	RDRAM	Diddy Invulnerability Timer
+753164	w	u	1	RDRAM	Lanky Invulnerability Timer
+753166	w	u	1	RDRAM	Tiny Invulnerability Timer
+753168	w	u	1	RDRAM	Chunky Invulnerability Timer
+75316A	w	u	1	RDRAM	Krusha Invulnerability Timer
+75316C	w	u	1	RDRAM	Rambi Invulnerability Timer
+7531FC	d	f	1	RDRAM	DK Walk Maximum Velocity
+753200	d	f	1	RDRAM	Diddy Walk Maximum Velocity
+753204	d	f	1	RDRAM	Lanky Walk Maximum Velocity
+753208	d	f	1	RDRAM	Tiny Walk Maximum Velocity
+75320C	d	f	1	RDRAM	Chunky Walk Maximum Velocity
+753210	d	f	1	RDRAM	Krusha Walk Maximum Velocity
+753214	d	f	1	RDRAM	Rambi Walk Maximum Velocity
+75326C	w	u	1	RDRAM	DK Angle Update Speed (Land)
+75326E	w	u	1	RDRAM	Diddy Angle Update Speed (Land)
+753270	w	u	1	RDRAM	Lanky Angle Update Speed (Land)
+753272	w	u	1	RDRAM	Tiny Angle Update Speed (Land)
+753274	w	u	1	RDRAM	Chunky Angle Update Speed (Land)
+753276	w	u	1	RDRAM	Krusha Angle Update Speed (Land)
+753278	w	u	1	RDRAM	Rambi Angle Update Speed (Land)
+7532D4	d	f	1	RDRAM	DK Carrying Object Maximum Velocity
+7532D8	d	f	1	RDRAM	Diddy Carrying Object Maximum Velocity
+7532DC	d	f	1	RDRAM	Lanky Carrying Object Maximum Velocity
+7532E0	d	f	1	RDRAM	Tiny Carrying Object Maximum Velocity
+7532E4	d	f	1	RDRAM	Chunky Carrying Object Maximum Velocity
+7532E8	d	f	1	RDRAM	Krusha Carrying Object Maximum Velocity
+7532EC	d	f	1	RDRAM	Rambi Carrying Object Maximum Velocity
+753578	d	f	1	RDRAM	DK Idle, Kick, Crouch, Fall Y Acceleration
+753590	d	f	1	RDRAM	Rambi Idle Y Acceleration
+7535B0	d	f	1	RDRAM	DK Jump Y Acceleration
+7535B4	d	f	1	RDRAM	Diddy Jump Y Acceleration
+7535B8	d	f	1	RDRAM	Lanky Jump Y Acceleration
+7535BC	d	f	1	RDRAM	Tiny Jump Y Acceleration
+7535C0	d	f	1	RDRAM	Chunky Jump Y Acceleration
+7535C4	d	f	1	RDRAM	Krusha Jump Y Acceleration
+7535C8	d	f	1	RDRAM	Rambi Jump Y Acceleration
+7535CC	d	f	1	RDRAM	DK Jump Initial Y Velocity
+7535D0	d	f	1	RDRAM	Diddy Jump Initial Y Velocity
+7535D4	d	f	1	RDRAM	Lanky Jump Initial Y Velocity
+7535D8	d	f	1	RDRAM	Tiny Jump Initial Y Velocity
+7535DC	d	f	1	RDRAM	Chunky Jump Initial Y Velocity
+7535E0	d	f	1	RDRAM	Krusha Jump Initial Y Velocity
+7535E4	d	f	1	RDRAM	Rambi Jump Initial Y Velocity
+7535E8	d	f	1	RDRAM	DK Terminal Velocity
+7535EC	d	f	1	RDRAM	Diddy Terminal Velocity
+7535F0	d	f	1	RDRAM	Lanky Terminal Velocity
+7535F4	d	f	1	RDRAM	Tiny Terminal Velocity
+7535F8	d	f	1	RDRAM	Chunky Terminal Velocity
+7535FC	d	f	1	RDRAM	Krusha Terminal Velocity
+753600	d	f	1	RDRAM	Rambi Terminal Velocity
+75371C	d	f	1	RDRAM	DK Backflip Initial Y Velocity
+753720	d	f	1	RDRAM	Diddy Backflip Initial Y Velocity
+753724	d	f	1	RDRAM	Lanky Backflip Initial Y Velocity
+753728	d	f	1	RDRAM	Tiny Backflip Initial Y Velocity
+75372C	d	f	1	RDRAM	Chunky Backflip Initial Y Velocity
+753730	d	f	1	RDRAM	Krusha Backflip Initial Y Velocity
+753734	d	f	1	RDRAM	Rambi Backflip Initial Y Velocity?
+753738	d	f	1	RDRAM	DK Backflip Y Acceleration
+75373C	d	f	1	RDRAM	Diddy Backflip Y Acceleration
+753740	d	f	1	RDRAM	Lanky Backflip Y Acceleration
+753744	d	f	1	RDRAM	Tiny Backflip Y Acceleration
+753748	d	f	1	RDRAM	Chunky Backflip Y Acceleration
+75374C	d	f	1	RDRAM	Krusha Backflip Y Acceleration
+753750	d	f	1	RDRAM	Rambi Backflip Y Acceleration?
+753770	d	f	1	RDRAM	DK Long Jump Velocity
+753774	d	f	1	RDRAM	Diddy Long Jump Velocity
+753778	d	f	1	RDRAM	Lanky Long Jump Velocity
+75377C	d	f	1	RDRAM	Tiny Long Jump Velocity
+753780	d	f	1	RDRAM	Chunky Long Jump Velocity
+753784	d	f	1	RDRAM	Krusha Long Jump Velocity
+753788	d	f	1	RDRAM	Rambi Long Jump Velocity?
+75378C	d	f	1	RDRAM	DK Long Jump Initial Y Velocity
+753790	d	f	1	RDRAM	Diddy Long Jump Initial Y Velocity
+753794	d	f	1	RDRAM	Lanky Long Jump Initial Y Velocity
+753798	d	f	1	RDRAM	Tiny Long Jump Initial Y Velocity
+75379C	d	f	1	RDRAM	Chunky Long Jump Initial Y Velocity
+7537A0	d	f	1	RDRAM	Krusha Long Jump Initial Y Velocity
+7537A4	d	f	1	RDRAM	Rambi Long Jump Initial Y Velocity?
+75388C	w	s	1	RDRAM	DK Water Surface Offset
+75388E	w	s	1	RDRAM	Diddy Water Surface Offset
+753890	w	s	1	RDRAM	Lanky Water Surface Offset
+753892	w	s	1	RDRAM	Tiny Water Surface Offset
+753894	w	s	1	RDRAM	Chunky Water Surface Offset
+753896	w	s	1	RDRAM	Krusha Water Surface Offset
+753898	w	s	1	RDRAM	Rambi Water Surface Offset
+753988	d	f	1	RDRAM	DK Surface Swim Terminal X Velocity
+75398C	d	f	1	RDRAM	Diddy Surface Swim Terminal X Velocity
+753990	d	f	1	RDRAM	Lanky Surface Swim Terminal X Velocity
+753994	d	f	1	RDRAM	Tiny Surface Swim Terminal X Velocity
+753998	d	f	1	RDRAM	Chunky Surface Swim Terminal X Velocity
+75399C	d	f	1	RDRAM	Krusha Surface Swim Terminal Velocity
+7539A0	d	f	1	RDRAM	Rambi Surface Swim Terminal X Velocity
+753AE0	d	f	1	RDRAM	DK Swim Terminal Velocity
+753AE4	d	f	1	RDRAM	Diddy Swim Terminal Velocity
+753AE8	d	f	1	RDRAM	Lanky Swim Terminal Velocity
+753AEC	d	f	1	RDRAM	Tiny Swim Terminal Velocity
+753AF0	d	f	1	RDRAM	Chunky Swim Terminal Velocity
+753AF4	d	f	1	RDRAM	Krusha Swim Terminal Velocity
+753AF8	d	f	1	RDRAM	Rambi Swim Terminal Velocity
+753E2C	d	f	1	RDRAM	DK Coconut Velocity
+753E30	d	f	1	RDRAM	Diddy Peanut Velocity
+753E34	d	f	1	RDRAM	Lanky Grape Velocity
+753E38	d	f	1	RDRAM	Tiny Feather Velocity
+753E3C	d	f	1	RDRAM	Chunky Pineapple Velocity
+753E40	d	f	1	RDRAM	Krusha Orange Velocity (Gun)
+753E44	d	f	1	RDRAM	Rambi Gun Velocity?
+755384	d	u	1	RDRAM	Arena 1 Map Index
+755388	d	u	1	RDRAM	Arena 2 Map Index
+75538C	d	u	1	RDRAM	Arena 3 Map Index
+757360	d	f	1	RDRAM	Object Model 1 Scale
+758C60	d	f	1	RDRAM	Map Scale
+758EC0	d	f	1	RDRAM	Pad Fake Floor Y
+758F10	d	f	1	RDRAM	Water Fake Floor Y
+759C80	d	f	1	RDRAM	Object Model 1 Scale (Double Precision)
+75C412	w	h	1	RDRAM	DK Behavior
+75C41A	w	h	1	RDRAM	DK Model
+75C422	w	h	1	RDRAM	Diddy Behavior
+75C42A	w	h	1	RDRAM	Diddy Model
+75C432	w	h	1	RDRAM	Lanky Behavior
+75C43A	w	h	1	RDRAM	Lanky Model
+75C442	w	h	1	RDRAM	Tiny Behavior
+75C44A	w	h	1	RDRAM	Tiny Model
+75C452	w	h	1	RDRAM	Chunky Behavior
+75C45A	w	h	1	RDRAM	Chunky Model
+75C462	w	h	1	RDRAM	Krusha Behavior
+75C46A	w	h	1	RDRAM	Krusha Model
+75C472	w	h	1	RDRAM	Rambi Behavior
+75C47A	w	h	1	RDRAM	Rambi Model
+75C482	w	h	1	RDRAM	Enguarde Behavior
+75C48A	w	h	1	RDRAM	Enguarde Model
+75C492	w	h	1	RDRAM	Squawks Behavior
+75C49A	w	h	1	RDRAM	Squawks Model
+75C4A2	w	h	1	RDRAM	Squawks Behavior
+75C4AA	w	h	1	RDRAM	Squawks Model
+75D16C	d	f	1	RDRAM	Feather Scale
+75D170	d	f	1	RDRAM	Coconut Scale
+75D174	d	f	1	RDRAM	Peanut Scale
+75EC28	w	h	1	RDRAM	Snide Behavior
+75EC2A	w	h	1	RDRAM	Snide Model
+75EC58	w	h	1	RDRAM	Klump Behavior
+75EC5A	w	h	1	RDRAM	Klump Model
+75EDF0	w	h	1	RDRAM	Mad Jack Behavior
+75EDF2	w	h	1	RDRAM	Mad Jack Model
+76D200	d	h	1	RDRAM	Music Pointer Table Start
+7F5FE4	w	s	1	RDRAM	Map Void - Minimum X
+7F5FE6	w	s	1	RDRAM	Map Void - Minimum Z
+7F5FE8	w	s	1	RDRAM	Map Void - Maximum X
+7F5FEA	w	s	1	RDRAM	Map Void - Maximum Z
+7F952C	d	h	1	RDRAM	Map Geometry Table Pointer
+7F9530	d	h	1	RDRAM	Wall Collision Table Pointer
+7F9534	d	h	1	RDRAM	Ceiling Collision Table Pointer
+7F9538	d	h	1	RDRAM	Object Model 2 Model Table Pointer
+7F954C	d	h	1	RDRAM	Setup Table Pointer
+7F9564	d	h	1	RDRAM	Balloon Trajectory Table Pointer
+7F958C	d	h	1	RDRAM	Texture Table Pointer
+

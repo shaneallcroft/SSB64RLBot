@@ -1,0 +1,124 @@
+<html>
+<head>
+	<title>Key Priority Simulator 2017</title>
+	<script>
+		var keys = [false, false, false, false, false, false, false, false],
+			queue = [];
+
+		function computePriority() {
+			for (var i = 0; i < 8; i++) {
+				keys[i] = document.getElementById('key' + (i + 1)).checked;
+			}
+
+			var selectedKeys = countSelectedKeys();
+			if (selectedKeys > 0) {
+				lastKey = pickHighest();
+				queue = [];
+				queue.push(lastKey);
+				for (var i = 0; i < selectedKeys - 1; i++) {
+					if (lastKey == 3 || lastKey == 8) {
+						lastKey = pickLowest();
+					} else {
+						lastKey = pickHighest();
+					}
+					queue.push(lastKey);
+				}
+
+				var priorityString = "";
+				for (var i = 0; i < queue.length; i++) {
+					priorityString += queue[i] + (i < queue.length - 1 ? " &#8680; " : "");
+				}
+				document.getElementById("order").innerHTML = priorityString;
+			} else {
+				document.getElementById("order").innerHTML = "No keys selected.";
+			}
+		}
+
+		function countSelectedKeys() {
+			var count = 0;
+			for (var i = 0; i < keys.length; i++) {
+				if (keys[i]) {
+					count++;
+				}
+			}
+			return count;
+		}
+
+		function pickHighest() {
+			for (var i = keys.length - 1; i >= 0; i--) {
+				if (keys[i] == true) {
+					keys[i] = false;
+					return i + 1;
+				}
+			}
+		}
+
+		function pickLowest() {
+			for (var i = 0; i < keys.length; i++) {
+				if (keys[i] == true) {
+					keys[i] = false;
+					return i + 1;
+				}
+			}
+		}
+
+		window.onload = function() {
+			var inputs = document.getElementsByTagName('input');
+			for (var i = 0; i < inputs.length; i++) {
+				inputs[i].addEventListener("change", computePriority);
+			}
+			var fullYear = new Date().getFullYear();
+			document.getElementById('year').innerHTML = fullYear;
+			document.title = "Key Priority Simulator " + fullYear;
+		};
+	</script>
+	<style>
+		* {
+			color: white;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+		td, a {
+			color: goldenrod;
+			text-decoration: none;
+		}
+		body {
+			background: #222222;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<h1>Key Priority Simulator <span id="year">2017</span></h1>
+	<h2>Select Keys in inventory</h2>
+	<table>
+		<tr>
+			<td><input id="key1" type="checkbox">&nbsp;Key 1</td>
+			<td><input id="key5" type="checkbox">&nbsp;Key 5</td>
+		</tr>
+		<tr>
+			<td><input id="key2" type="checkbox">&nbsp;Key 2</td>
+			<td><input id="key6" type="checkbox">&nbsp;Key 6</td>
+		</tr>
+		<tr>
+			<td><input id="key3" type="checkbox">&nbsp;Key 3</td>
+			<td><input id="key7" type="checkbox">&nbsp;Key 7</td>
+		</tr>
+		<tr>
+			<td><input id="key4" type="checkbox">&nbsp;Key 4</td>
+			<td><input id="key8" type="checkbox">&nbsp;Key 8</td>
+		</tr>
+	</table>
+	<h3>Turn order</h3>
+	<div id="order">No keys selected.</div>
+	<br>
+	<h2>How it works</h2>
+	<p>
+		When entering K. Lumsy's room, the game picks the highest Key from the player's inventory to turn first.<br>
+		If the Key plays a lobby opening cutscene (everything except Keys 3 and 8), the area reloads and the process starts again.<br>
+		If it's Key 3 or 8, the game then picks the lowest key from the player's inventory to turn next.<br>
+	</p>
+	<b>Based on research by <a href="https://twitch.tv/tiffany_jane_">TJ</a> &amp; <a href="https://twitch.tv/isotarge">Isotarge</a></b>
+</body>
+</html>

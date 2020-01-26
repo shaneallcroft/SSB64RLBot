@@ -1,0 +1,117 @@
+SystemID N64
+2748DC	d	h	1	RDRAM	Framebuffer Pointer (Copy)
+274B70	d	f	1	RDRAM	FOV
+274B74	d	f	1	RDRAM	Aspect Ratio
+27683C	d	f	1	RDRAM	Culling Angle (Left)
+276840	d	f	1	RDRAM	Culling Angle (Right)
+276848	d	f	1	RDRAM	Culling Angle (Top)
+276850	d	f	1	RDRAM	Culling Angle (Bottom)
+27F718	d	s	1	RDRAM	Frame timer
+27F71C	d	s	1	RDRAM	Frameskip
+2806DA	w	h	1	RDRAM	Music Track
+281E20	d	h	1	RDRAM	Framebuffer Pointer
+282240	w	h	1	RDRAM	Stop'N'Swop Items
+36B6EC	w	u	1	RDRAM	Pause Menu Item 1 Y Position
+36B6EE	b	u	1	RDRAM	Pause Menu Item 1 Portrait
+36B6FC	w	u	1	RDRAM	Pause Menu Item 2 Y Position
+36B6FE	b	u	1	RDRAM	Pause Menu Item 2 Portrait
+36B70C	w	u	1	RDRAM	Pause Menu Item 3 Y Position
+36B70E	b	u	1	RDRAM	Pause Menu Item 3 Portrait
+36B71C	w	u	1	RDRAM	Pause Menu Item 4 Y Position
+36B71E	b	u	1	RDRAM	Pause Menu Item 4 Portrait
+36D760	d	h	1	RDRAM	Object Array pointer
+37B160	b	u	1	RDRAM	Player is on ground
+37B161	b	u	1	RDRAM	Player is swimming
+37B3D1	b	u	1	RDRAM	Standing on Fly Pad
+37B3D2	b	u	1	RDRAM	Standing on Shock Spring Pad
+37B400	d	h	1	RDRAM	Floor Object Pointer
+37B47D	b	u	1	RDRAM	Wall Collisions
+37B498	d	h	1	RDRAM	Carried Object Pointer
+37B49C	b	u	1	RDRAM	Carried Object Position Update Toggle
+37B4E4	d	f	1	RDRAM	Slope Timer
+37B5A0	d	h	1	RDRAM	Moves Unlocked (Bitfield)
+37B5D0	d	f	1	RDRAM	Unknown Float
+37B5D4	d	f	1	RDRAM	Unknown Float
+37B6B8	d	f	1	RDRAM	X Velocity
+37B6BC	d	f	1	RDRAM	Y Velocity
+37B6C0	d	f	1	RDRAM	Z Velocity
+37B6E8	d	f	1	RDRAM	Gravity
+37B6EC	d	f	1	RDRAM	Terminal Velocity
+37B6F0	d	f	1	RDRAM	Target XZ Velocity
+37B740	d	f	1	RDRAM	X Rotation - Current
+37B744	d	f	1	RDRAM	X Rotation - Target
+37B748	d	f	1	RDRAM	X Rotation - Update speed
+37B74C	d	f	1	RDRAM	X Rotation - Unknown
+37B7A0	d	f	1	RDRAM	X Position
+37B7A4	d	f	1	RDRAM	Y Position
+37B7A8	d	f	1	RDRAM	Z Position
+37B7B0	d	f	1	RDRAM	X Position (OOB Detection)
+37B7B4	d	f	1	RDRAM	Y Position (OOB Detection)
+37B7B8	d	f	1	RDRAM	Z Position (OOB Detection)
+37B880	d	f	1	RDRAM	Z Rotation - Current
+37B884	d	f	1	RDRAM	Z Rotation - Target
+37B888	d	f	1	RDRAM	Z Rotation - Update speed
+37B88C	d	f	1	RDRAM	Z Rotation - Unknown
+37B890	d	f	1	RDRAM	Facing Angle
+37B894	d	f	1	RDRAM	Moving Angle
+37C360	d	u	1	RDRAM	Previous Movement State
+37C364	d	u	1	RDRAM	Current Movement State
+37CDA8	d	f	1	RDRAM	Camera Rot Y
+37CEB0	d	s	1	RDRAM	MM Hut index
+37CFB4	d	f	1	RDRAM	Jiggy Spawn Angle
+37CFB8	d	f	1	RDRAM	Jiggy Spawn Velocity
+37D168	d	u	1	RDRAM	Bottles Bonus Puzzle Index
+37DAE8	d	f	1	RDRAM	Game runtime
+37DAF0	d	f	1	RDRAM	Map runtime
+37DAF4	b	h	1	RDRAM	Map Load State
+37DAF5	b	h	1	RDRAM	Map
+37DAF6	b	h	1	RDRAM	Exit
+3811A0	d	h	1	RDRAM	Struct Array Pointer
+382240	d	h	1	RDRAM	"Return to Game" Pointer
+382244	d	h	1	RDRAM	"Return to Lair" Pointer
+382248	d	h	1	RDRAM	"View Totals" Pointer
+38224C	d	h	1	RDRAM	"Save and Quit" Pointer
+3822A0	b	h	1	RDRAM	"Return to Lair" Enabled
+382300	d	h	1	RDRAM	FF Question Pointer
+3823D1	w	h	1	RDRAM	Cauldron Bitfield
+3823E2	w	h	1	RDRAM	FF Pattern
+382500	d	h	1	RDRAM	Honeycomb Bitfield
+382548	b	h	1	RDRAM	Sandcastle Water State
+3825A4	d	f	1	RDRAM	Text Timer
+385180	d	s	1	RDRAM	Notes (on hand)
+385184	d	s	1	RDRAM	Eggs
+38518C	d	s	1	RDRAM	Red Feathers
+385190	d	s	1	RDRAM	Gold Feathers
+3851A0	d	s	1	RDRAM	Health
+3851A4	d	s	1	RDRAM	Health Containers
+3851A8	d	s	1	RDRAM	Lives
+3851AC	d	s	1	RDRAM	Air
+3851E4	d	s	1	RDRAM	Mumbo Tokens
+3851E8	d	s	1	RDRAM	Jiggies (on hand)
+385211	b	u	1	RDRAM	Note Score (MM)
+385212	b	u	1	RDRAM	Note Score (TTC)
+385213	b	u	1	RDRAM	Note Score (CC)
+385214	b	u	1	RDRAM	Note Score (BGS)
+385215	b	u	1	RDRAM	Note Score (FP)
+385217	b	u	1	RDRAM	Note Score (GV)
+385218	b	u	1	RDRAM	Note Score (CCW)
+385219	b	u	1	RDRAM	Note Score (RBB)
+38521A	b	u	1	RDRAM	Note Score (MMM)
+385224	d	f	1	RDRAM	Game Time (MM)
+385228	d	f	1	RDRAM	Game Time (TTC)
+38522C	d	f	1	RDRAM	Game Time (CC)
+385230	d	f	1	RDRAM	Game Time (BGS)
+385234	d	f	1	RDRAM	Game Time (FP)
+385238	d	f	1	RDRAM	Game Time (GL)
+38523C	d	f	1	RDRAM	Game Time (GV)
+385240	d	f	1	RDRAM	Game Time (CCW)
+385244	d	f	1	RDRAM	Game Time (RBB)
+385248	d	f	1	RDRAM	Game Time (MMM)
+38524C	d	f	1	RDRAM	Game Time (SM)
+385300	d	h	1	RDRAM	RNG
+385304	d	h	1	RDRAM	RNG
+385308	d	h	1	RDRAM	RNG
+38530C	d	h	1	RDRAM	RNG
+385310	d	h	1	RDRAM	RNG
+385314	d	h	1	RDRAM	RNG
+

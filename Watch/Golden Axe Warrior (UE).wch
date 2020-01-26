@@ -1,0 +1,43 @@
+SystemID SMS
+00A2	b	u	0	Main RAM	Number of Enemies
+00B9	b	h	0	Main RAM	Map Index
+00BA	b	u	0	Main RAM	Map Type
+00CF	b	h	0	Main RAM	Crystal 1 Collected
+00D0	b	h	0	Main RAM	Crystal 2 Collected
+00D1	b	h	0	Main RAM	Crystal 3 Collected
+00D2	b	h	0	Main RAM	Crystal 4 Collected
+00D3	b	h	0	Main RAM	Crystal 5 Collected
+00D4	b	h	0	Main RAM	Crystal 6 Collected
+00D5	b	h	0	Main RAM	Crystal 7 Collected
+00D6	b	h	0	Main RAM	Crystal 8 Collected
+00D7	b	h	0	Main RAM	Crystal 9 Collected
+00DA	b	u	0	Main RAM	Max HP
+00DB	b	u	0	Main RAM	Magic
+00DC	b	u	0	Main RAM	Max Magic
+00DD	b	u	0	Main RAM	Horns
+00DE	b	u	0	Main RAM	Keys
+00DF	b	u	0	Main RAM	Equipped Weapon
+00E0	b	u	0	Main RAM	Inventory: Sword
+00E1	b	u	0	Main RAM	Inventory: Axe
+00E2	b	u	0	Main RAM	Inventory: Magic Oil
+00E3	b	u	0	Main RAM	Inventory: Flame
+00E4	b	u	0	Main RAM	Inventory: Thunder Magic Scroll
+00E5	b	u	0	Main RAM	Inventory: Earth Magic Scroll
+00E6	b	u	0	Main RAM	Inventory: Fire Magic Scroll
+00E7	b	u	0	Main RAM	Inventory: Water Magic Scroll
+00E8	b	u	0	Main RAM	Inventory: Golden Apple
+00E9	b	u	0	Main RAM	Inventory: Magic Feather
+00EA	b	u	0	Main RAM	Inventory: Ice Bell
+00EB	b	u	0	Main RAM	Inventory: Balloon
+00EC	b	u	0	Main RAM	Inventory: Canoe
+00ED	b	u	0	Main RAM	Inventory: Magic Rope
+00EE	b	u	0	Main RAM	Inventory: Speed Shoes
+00EF	b	u	0	Main RAM	Inventory: Thief's Key
+00F0	b	u	0	Main RAM	Inventory: Ship
+00F1	b	u	0	Main RAM	Equipped Armor
+00F2	b	u	0	Main RAM	Equipped Shield
+0311	b	h	0	Main RAM	Y
+0313	b	u	0	Main RAM	X
+0318	b	u	0	Main RAM	HP
+0618	b	u	0	Main RAM	Boss HP
+

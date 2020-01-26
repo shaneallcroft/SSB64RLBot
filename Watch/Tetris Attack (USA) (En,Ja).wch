@@ -1,0 +1,19 @@
+SystemID SNES
+0002C2	d	u	0	WRAM	P1 Score (Single Player)
+00030E	w	u	0	WRAM	P1 Score
+000312	w	u	0	WRAM	P2 Score
+000316	w	u	0	WRAM	P1 Score
+000318	w	u	0	WRAM	P2 Score
+000333	w	u	1	WRAM	Game time (Minutes)
+000335	w	u	1	WRAM	Game time (Seconds)
+0003A4	b	u	0	WRAM	P1 Cursor Left X
+0003A6	b	u	0	WRAM	P2 Cursor Left X
+0003A8	b	u	0	WRAM	P1 Cursor Left Y
+0003AA	b	u	0	WRAM	P2 Cursor Left Y
+0003AC	b	u	0	WRAM	P1 Cursor Right X
+0003AE	b	u	0	WRAM	P2 Cursor Right X
+0003B0	b	u	0	WRAM	P1 Cursor Right Y
+0003B2	b	u	0	WRAM	P2 Cursor Right Y
+000404	b	u	0	WRAM	P1 Row Height Ticker
+000406	b	u	0	WRAM	P2 Row Height Ticker
+

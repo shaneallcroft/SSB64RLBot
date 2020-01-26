@@ -1,0 +1,93 @@
+SystemID N64
+00F292	w	u	1	RDRAM	Scanlines Per Frame
+0103A4	d	h	1	RDRAM	Framebuffer Pointer
+0103A8	d	h	1	RDRAM	Render Mode Pointer
+0103D4	d	h	1	RDRAM	Framebuffer Pointer
+0103D8	d	h	1	RDRAM	Render Mode Pointer
+026DEC	d	h	1	RDRAM	DK ? Color (Main Menu)
+026DF0	d	h	1	RDRAM	Diddy ? Color (Main Menu)
+026DF4	d	h	1	RDRAM	Lanky ? Color (Main Menu)
+026DF8	d	h	1	RDRAM	Tiny ? Color (Main Menu)
+026DFC	d	h	1	RDRAM	Chunky ? Color (Main Menu)
+6F29A6	w	h	1	RDRAM	Lanky Long Arms Map Index
+6F29A8	d	h	1	RDRAM	Lanky Long Arms Map Check (0 for any map)
+743FC0	w	u	1	RDRAM	Japes Boss Door Destination
+743FC2	w	u	1	RDRAM	Aztec Boss Door Destination
+743FC4	w	u	1	RDRAM	Factory Boss Door Destination
+743FC6	w	u	1	RDRAM	Galleon Boss Door Destination
+743FC8	w	u	1	RDRAM	Fungi Boss Door Destination
+743FCA	w	u	1	RDRAM	Caves Boss Door Destination
+743FCC	w	u	1	RDRAM	Castle Boss Door Destination
+743FCE	w	u	1	RDRAM	Isles Boss Door Destination
+743FD0	w	u	1	RDRAM	Helm Boss Door Destination
+743FD2	w	u	1	RDRAM	Bonus Boss Door Destination
+743FD4	w	u	1	RDRAM	Multiplayer Boss Door Destination
+743FD6	w	u	1	RDRAM	Cutscene Boss Door Destination
+743FD8	w	u	1	RDRAM	Test Map Boss Door Destination
+743FDA	w	u	1	RDRAM	Global Boss Door Destination
+74FC04	d	f	1	RDRAM	Orange Y Acceleration
+752ADC	d	f	1	RDRAM	DK Walk Maximum Velocity
+752AE0	d	f	1	RDRAM	Diddy Walk Maximum Velocity
+752AE4	d	f	1	RDRAM	Lanky Walk Maximum Velocity
+752AE8	d	f	1	RDRAM	Tiny Walk Maximum Velocity
+752AEC	d	f	1	RDRAM	Chunky Walk Maximum Velocity
+752AF0	d	f	1	RDRAM	Krusha Walk Maximum Velocity
+752B4C	w	u	1	RDRAM	DK Angle Update Speed (Land)
+752B4E	w	u	1	RDRAM	Diddy Angle Update Speed (Land)
+752B50	w	u	1	RDRAM	Lanky Angle Update Speed (Land)
+752B52	w	u	1	RDRAM	Tiny Angle Update Speed (Land)
+752B54	w	u	1	RDRAM	Chunky Angle Update Speed (Land)
+752B56	w	u	1	RDRAM	Krusha Angle Update Speed (Land)
+752B58	w	u	1	RDRAM	Rambi Angle Update Speed (Land)
+752BB4	d	f	1	RDRAM	DK Carrying Object Maximum Velocity
+752BB8	d	f	1	RDRAM	Diddy Carrying Object Maximum Velocity
+752BBC	d	f	1	RDRAM	Lanky Carrying Object Maximum Velocity
+752BC0	d	f	1	RDRAM	Tiny Carrying Object Maximum Velocity
+752BC4	d	f	1	RDRAM	Chunky Carrying Object Maximum Velocity
+752BC8	d	f	1	RDRAM	Krusha Carrying Object Maximum Velocity
+752BCC	d	f	1	RDRAM	Rambi Carrying Object Maximum Velocity
+75370C	d	f	1	RDRAM	DK Coconut Velocity
+753710	d	f	1	RDRAM	Diddy Peanut Velocity
+753714	d	f	1	RDRAM	Lanky Grape Velocity
+753718	d	f	1	RDRAM	Tiny Feather Velocity
+75371C	d	f	1	RDRAM	Chunky Pineapple Velocity
+753720	d	f	1	RDRAM	Krusha Orange Velocity (Gun)
+757460	d	f	1	RDRAM	Object Model 1 Scale
+758D80	d	f	1	RDRAM	Map Scale
+75C5D2	w	h	1	RDRAM	DK Behavior
+75C5DA	w	h	1	RDRAM	DK Model
+75C5E2	w	h	1	RDRAM	Diddy Behavior
+75C5EA	w	h	1	RDRAM	Diddy Model
+75C5F2	w	h	1	RDRAM	Lanky Behavior
+75C5FA	w	h	1	RDRAM	Lanky Model
+75C602	w	h	1	RDRAM	Tiny Behavior
+75C60A	w	h	1	RDRAM	Tiny Model
+75C612	w	h	1	RDRAM	Chunky Behavior
+75C61A	w	h	1	RDRAM	Chunky Model
+75C622	w	h	1	RDRAM	Krusha Behavior
+75C62A	w	h	1	RDRAM	Krusha Model
+75C632	w	h	1	RDRAM	Rambi Behavior
+75C63A	w	h	1	RDRAM	Rambi Model
+75C642	w	h	1	RDRAM	Enguarde Behavior
+75C64A	w	h	1	RDRAM	Enguarde Model
+75C652	w	h	1	RDRAM	Squawks Behavior
+75C65A	w	h	1	RDRAM	Squawks Model
+75C662	w	h	1	RDRAM	Squawks Behavior
+75C66A	w	h	1	RDRAM	Squawks Model
+75EDE8	w	h	1	RDRAM	Snide Behavior
+75EDEA	w	h	1	RDRAM	Snide Model
+75EE18	w	h	1	RDRAM	Klump Behavior
+75EE1A	w	h	1	RDRAM	Klump Model
+75EFB0	w	h	1	RDRAM	Mad Jack Behavior
+75EFB2	w	h	1	RDRAM	Mad Jack Model
+7F6454	w	s	1	RDRAM	Map Void - Minimum X
+7F6456	w	s	1	RDRAM	Map Void - Minimum Z
+7F6458	w	s	1	RDRAM	Map Void - Maximum X
+7F645A	w	s	1	RDRAM	Map Void - Maximum Z
+7F999C	d	h	1	RDRAM	Map Geometry Table Pointer
+7F99A0	d	h	1	RDRAM	Wall Collision Table Pointer
+7F99A4	d	h	1	RDRAM	Ceiling Collision Table Pointer
+7F99A8	d	h	1	RDRAM	Object Model 2 Model Table Pointer
+7F99BC	d	h	1	RDRAM	Setup Table Pointer
+7F99FC	d	h	1	RDRAM	Texture Table Pointer
+
