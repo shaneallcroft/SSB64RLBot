@@ -5,6 +5,11 @@ if type(ScriptHawk) ~= "table" then
 	return;
 end
 
+print("enter address")
+--address = io.read("*l")
+print("enter port")
+--port = io.read("*l")
+
 local Game = {
 	
 	speedy_speeds = { .1, 1, 5, 10, 20, 35, 50, 75, 100 };
@@ -1243,88 +1248,87 @@ end
 function Game.eachFrame()
 	Game.scoreCompare();
 	local oldS = s
-    	local oldScore = smash64.score_point	
-	end
+    local oldScore = smash64.score_point	
 
 	-- Perform Action A[aIndex]
 	--mapping action to actual controller input
 	input = {}
 	if a == 'no input' then
 		input[a] = false
-	else if a == 'up full'
+	elseif a == 'up full' then
 		input['Y Axis'] = 1.0
-	else if a == 'up half'
+	elseif a == 'up half' then
 		input['Y Axis'] = 0.5
-	else if a == 'up right full'
+	elseif a == 'up right full' then
 		input['X Axis'] = 1.0
 		input['Y Axis'] = 1.0
-	else if a == 'up right half'
+	elseif a == 'up right half' then
 		input['X Axis'] = 0.5
 		input['Y Axis'] = 0.5
-	else if a == 'right full'
+	elseif a == 'right full' then
 		input['X Axis'] = 1.0
-	else if a == 'right half'
+	elseif a == 'right half' then
 		input['X Axis'] = 0.5
-	else if a == 'down right full'
+	elseif a == 'down right full' then
 		input['X Axis'] = 1.0
 		input['Y Axis'] = -1.0
-	else if a == 'down right half'
+	elseif a == 'down right half' then
 		input['X Axis'] = 0.5
 		input['Y Axis'] = -0.5
-	else if a == 'down full'
+	elseif a == 'down full' then
 		input['Y Axis'] = -1.0
-	else if a == 'down half'
+	elseif a == 'down half' then
 		input['Y Axis'] = -0.5
-	else if a == 'down left full'
+	elseif a == 'down left full' then
 		input['X Axis'] = -1.0
 		input['Y Axis'] = -1.0
-	else if a == 'down left half'
+	elseif a == 'down left half' then
 		input['X Axis'] = -0.5
 		input['Y Axis'] = -0.5
-	else if a == 'left full'
+	elseif a == 'left full' then
 		input['X Axis'] = -1.0
-	else if a == 'left half'
+	elseif a == 'left half' then
 		input['X Axis'] = -0.5
-	else if a == 'up left full'
+	elseif a == 'up left full' then
 		input['X Axis'] = -1.0
 		input['Y Axis'] = 1.0
-	else if a == 'up left half'
+	elseif a == 'up left half' then
 		input['X Axis'] = -0.5
 		input['Y Axis'] = 0.5
-	else if a == 'A + up full'
+	elseif a == 'A + up full' then
 		input['P1 A'] = true
 		input['Y Axis'] = 1.0
-	else if a == 'A + up half'
+	elseif a == 'A + up half' then
 		input['P1 A'] = true
 		input['Y Axis'] = 0.5
-	else if a == 'A + right full'
+	elseif a == 'A + right full' then
 		input['P1 A'] = true
 		input['X Axis'] = 1.0
-	else if a == 'A + right half'
+	elseif a == 'A + right half' then
 		input['P1 A'] = true
 		input['X Axis'] = 0.5
-	else if a == 'A + down full'
+	elseif a == 'A + down full' then 
 		input['P1 A'] = true
 		input['Y Axis'] = -1.0
-	else if a == 'A + down half'
+	elseif a == 'A + down half' then
 		input['P1 A'] = true
 		input['Y Axis'] = -0.5
-	else if a == 'A + left full'
+	elseif a == 'A + left full' then
 		input['P1 A'] = true
 		input['X Axis'] = -1.0
-	else if a == 'A + left half'
+	elseif a == 'A + left half' then
 		input['P1 A'] = true
 		input['X Axis'] = -0.5
-	else if a == 'B + up full'
+	elseif a == 'B + up full' then
 		input['P1 B'] = true
 		input['Y Axis'] = 1.0
-	else if a == 'B + down full'
+	elseif a == 'B + down full' then
 		input['P1 B'] = true
 		input['Y Axis'] = -1.0
-	else if a == 'Z + right full'
+	elseif a == 'Z + right full' then
 		input['P1 Z'] = true
 		input['X Axis'] = -1.0
-	else if a == 'Z + left full'
+	elseif a == 'Z + left full' then
 		input['P1 Z'] = true
 		input['X Axis'] = 1.0
 	else
@@ -1383,5 +1387,3 @@ function Game.eachFrame()
 		currentOSDCharacters = OSDCharacters;
 	end
 end
-
-return Game;
