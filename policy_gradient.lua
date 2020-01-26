@@ -2,16 +2,10 @@ local _ = require 'moses'
 local nn = require 'nn'
 local gnuplot = require 'gnuplot'
 local environ = require 'environ'
-local smash64 = require 'smash64'
-local socket = require("socket")
+local socket = require 'socket'
 
 -- Set manual seed
 torch.manualSeed(1)
-
--- Load Q* from MC control
-local QStar = torch.load('Q.t7')
--- Extract V as argmax Q
-local V = torch.max(QStar, 3):squeeze()
 
 local nEpisodes = 100
 -- Number of discrete actions
