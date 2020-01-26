@@ -34,15 +34,11 @@ local checkBust = function(sum)
 end
 
 -- Perform a step in the environment
-environ.step = function(s,a, newScore, oldScore)
-  -- Current state
-
-  local sPrime = {}
-
+environ.calculateReward = function(newScore, oldScore)
   -- Enemy Death * (11000) + Self Death * (-10000) + Enemy Percent * (300) + Self Percent * (-143) + Self Destruct * (-30000) + 
   local r = newScore - oldScore
 
-  return sPrime, r
+  return r
 end
 
 
