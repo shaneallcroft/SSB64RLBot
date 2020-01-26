@@ -5,11 +5,6 @@ if type(ScriptHawk) ~= "table" then
 	return;
 end
 
-print("enter address")
-address = io.read("*l")
-print("enter port")
-port = io.read("*l")
-
 local Game = {
 	speedy_speeds = { .1, 1, 5, 10, 20, 35, 50, 75, 100 };
 	speedy_index = 6;
@@ -1259,90 +1254,90 @@ function Game.eachFrame()
 
 	-- Perform Action A[aIndex]
 	--mapping action to actual controller input
-			--[[
-	input = {}
-	if a == 'no input' then
-		input[a] = false
+	
+	pad_input = {}
+	if a == 'no pad_input' then
+		pad_input[a] = false
 	elseif a == 'up full' then
-		input['Y Axis'] = 1.0
+		pad_input['Y Axis'] = 1.0
 	elseif a == 'up half' then
-		input['Y Axis'] = 0.5
+		pad_input['Y Axis'] = 0.5
 	elseif a == 'up right full' then
-		input['X Axis'] = 1.0
-		input['Y Axis'] = 1.0
+		pad_input['X Axis'] = 1.0
+		pad_input['Y Axis'] = 1.0
 	elseif a == 'up right half' then
-		input['X Axis'] = 0.5
-		input['Y Axis'] = 0.5
+		pad_input['X Axis'] = 0.5
+		pad_input['Y Axis'] = 0.5
 	elseif a == 'right full' then
-		input['X Axis'] = 1.0
+		pad_input['X Axis'] = 1.0
 	elseif a == 'right half' then
-		input['X Axis'] = 0.5
+		pad_input['X Axis'] = 0.5
 	elseif a == 'down right full' then
-		input['X Axis'] = 1.0
-		input['Y Axis'] = -1.0
+		pad_input['X Axis'] = 1.0
+		pad_input['Y Axis'] = -1.0
 	elseif a == 'down right half' then
-		input['X Axis'] = 0.5
-		input['Y Axis'] = -0.5
+		pad_input['X Axis'] = 0.5
+		pad_input['Y Axis'] = -0.5
 	elseif a == 'down full' then
-		input['Y Axis'] = -1.0
+		pad_input['Y Axis'] = -1.0
 	elseif a == 'down half' then
-		input['Y Axis'] = -0.5
+		pad_input['Y Axis'] = -0.5
 	elseif a == 'down left full' then
-		input['X Axis'] = -1.0
-		input['Y Axis'] = -1.0
+		pad_input['X Axis'] = -1.0
+		pad_input['Y Axis'] = -1.0
 	elseif a == 'down left half' then
-		input['X Axis'] = -0.5
-		input['Y Axis'] = -0.5
+		pad_input['X Axis'] = -0.5
+		pad_input['Y Axis'] = -0.5
 	elseif a == 'left full' then
-		input['X Axis'] = -1.0
+		pad_input['X Axis'] = -1.0
 	elseif a == 'left half' then
-		input['X Axis'] = -0.5
+		pad_input['X Axis'] = -0.5
 	elseif a == 'up left full' then
-		input['X Axis'] = -1.0
-		input['Y Axis'] = 1.0
+		pad_input['X Axis'] = -1.0
+		pad_input['Y Axis'] = 1.0
 	elseif a == 'up left half' then
-		input['X Axis'] = -0.5
-		input['Y Axis'] = 0.5
+		pad_input['X Axis'] = -0.5
+		pad_input['Y Axis'] = 0.5
 	elseif a == 'A + up full' then
-		input['P1 A'] = true
-		input['Y Axis'] = 1.0
+		pad_input['P1 A'] = true
+		pad_input['Y Axis'] = 1.0
 	elseif a == 'A + up half' then
-		input['P1 A'] = true
-		input['Y Axis'] = 0.5
+		pad_input['P1 A'] = true
+		pad_input['Y Axis'] = 0.5
 	elseif a == 'A + right full' then
-		input['P1 A'] = true
-		input['X Axis'] = 1.0
+		pad_input['P1 A'] = true
+		pad_input['X Axis'] = 1.0
 	elseif a == 'A + right half' then
-		input['P1 A'] = true
-		input['X Axis'] = 0.5
+		pad_input['P1 A'] = true
+		pad_input['X Axis'] = 0.5
 	elseif a == 'A + down full' then 
-		input['P1 A'] = true
-		input['Y Axis'] = -1.0
+		pad_input['P1 A'] = true
+		pad_input['Y Axis'] = -1.0
 	elseif a == 'A + down half' then
-		input['P1 A'] = true
-		input['Y Axis'] = -0.5
+		pad_input['P1 A'] = true
+		pad_input['Y Axis'] = -0.5
 	elseif a == 'A + left full' then
-		input['P1 A'] = true
-		input['X Axis'] = -1.0
+		pad_input['P1 A'] = true
+		pad_input['X Axis'] = -1.0
 	elseif a == 'A + left half' then
-		input['P1 A'] = true
-		input['X Axis'] = -0.5
+		pad_input['P1 A'] = true
+		pad_input['X Axis'] = -0.5
 	elseif a == 'B + up full' then
-		input['P1 B'] = true
-		input['Y Axis'] = 1.0
+		pad_input['P1 B'] = true
+		pad_input['Y Axis'] = 1.0
 	elseif a == 'B + down full' then
-		input['P1 B'] = true
-		input['Y Axis'] = -1.0
+		pad_input['P1 B'] = true
+		pad_input['Y Axis'] = -1.0
 	elseif a == 'Z + right full' then
-		input['P1 Z'] = true
-		input['X Axis'] = -1.0
+		pad_input['P1 Z'] = true
+		pad_input['X Axis'] = -1.0
 	elseif a == 'Z + left full' then
-		input['P1 Z'] = true
-		input['X Axis'] = 1.0
+		pad_input['P1 Z'] = true
+		pad_input['X Axis'] = 1.0
 	else
-		input[a] = true
+		pad_input[a] = true
 	end
-	--]]
+	
 	Game.updateDat();
 	if(frameCount%300==0) then
 		--Game.printDat();
