@@ -5,6 +5,13 @@ local environ = require 'environ'
 local socket = require 'socket'
 --local os = require 'os'
 
+local server = assert(socket.bind("*", 0))
+local ip, port = server:getsockname()
+print("ip:" .. ip)
+print("port:" .. port)
+
+local client = server:accept() --wait for the client to connect
+
 -- Set manual seed
 torch.manualSeed(1)
 
@@ -53,14 +60,13 @@ local results = torch.Tensor(nEpisodes)
 -- Sample
 for i = 1, nEpisodes do
   --TODO: Start new game and load the new game's first state accordingly 
-  local server = assert(socket.bind("*", 0))
-  local ip, port = server:getsockname()
-  print("ip:" .. ip)
-  print("port:" .. port)
+  local reception = nil
+	while (reception == nil) do
+		reception = client:receive()
+		--print (reception)
+	end
 
-  local client = server:accept() --wait for the client to connect
-  local line = client:recieve()
-  s = split(line, ',')
+  s = split(reception, ',')
   -- Experience tuples (s, a, r)
   local E = {}
   -- {bot death state, bot damage taken, bot x pos, bot y, bot xvel, bot yvel, } 
@@ -90,11 +96,13 @@ for i = 1, nEpisodes do
     -- Send Action to server
     client:send(a)
     -- Wait and Recieve new state from server
-    line = nil
-    while line ~= nil do
-      line = client:recieve()
-    -- Set new s based on new Action
-    s = split(line, ',')
+    local reception2 = nil
+	  while (reception2 == nil) do
+		reception2 = client:receive()
+		--print (reception)
+	  end
+
+    s = split(reception2, ',')
     newScore = table.remove(s)
     -- Score based on how well the action performed
     local r = environ.calculateReward(newScore, oldScore) -- r comes from score function f(s)
