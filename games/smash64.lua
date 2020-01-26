@@ -1254,7 +1254,7 @@ function Game.eachFrame()
 	Game.scoreCompare();
 	
 	--local oldS = s
-    --local oldScore = smash64.score_point	
+    --local oldScore = smash64.score_points
 	a = nil
 
 	-- Perform Action A[aIndex]
@@ -1348,12 +1348,12 @@ function Game.eachFrame()
 		--Game.printDat();
 	end
 	
-	tcp:send("MESSAGE HERE. DEDET")
+	tcp:send(score_points .. "," .. self_deaths .. "," .. self_percent .. "," .. self_x .. "," .. self_y .. "," .. self_xvel .. "," .. self_yvel .. "," .. self_facing .. "," .. enemy_deaths .. "," .. enemy_percent .. "," .. enemy_x .. "," .. enemy_y .. "," .. enemy_xvel .. "," .. enemy_yvel .. "," .. enemy_facing .. "," .. enemy_name)
 	
 	reception = nil
 	while (reception == nil) do
 		reception = tcp:receive()
-		print (reception)
+		--print (reception)
 	end
 
 	if ScriptHawk.UI.ischecked("toggle_hitboxes") then
