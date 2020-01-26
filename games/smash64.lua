@@ -6,12 +6,11 @@ if type(ScriptHawk) ~= "table" then
 end
 
 print("enter address")
---address = io.read("*l")
+address = io.read("*l")
 print("enter port")
---port = io.read("*l")
+port = io.read("*l")
 
 local Game = {
-	
 	speedy_speeds = { .1, 1, 5, 10, 20, 35, 50, 75, 100 };
 	speedy_index = 6;
 	max_rot_units = 4,
@@ -1247,8 +1246,10 @@ end
 	
 function Game.eachFrame()
 	Game.scoreCompare();
-	local oldS = s
-    local oldScore = smash64.score_point	
+	--[[
+	--local oldS = s
+    --local oldScore = smash64.score_point	
+	a = nil
 
 	-- Perform Action A[aIndex]
 	--mapping action to actual controller input
@@ -1334,6 +1335,7 @@ function Game.eachFrame()
 	else
 		input[a] = true
 	end
+	--]]
 	Game.updateDat();
 	if(frameCount%300==0) then
 		--Game.printDat();
@@ -1387,3 +1389,5 @@ function Game.eachFrame()
 		currentOSDCharacters = OSDCharacters;
 	end
 end
+
+return Game;
