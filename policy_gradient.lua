@@ -4,6 +4,7 @@ local gnuplot = require 'gnuplot'
 local environ = require 'environ'
 local socket = require 'socket'
 local string = require 'string'
+local newScore = 0
 --local os = require 'os'
 
 local server = assert(socket.bind("*", 51111))
@@ -105,7 +106,7 @@ for i = 1, nEpisodes do
     local a = environ.A[aIndex]
 
     local oldS = s
-    local oldScore = s-- Get score from server above 
+    local oldScore = newScore-- before newScore actually gets updated put it in old score 
     -- Perform a step
 
     -- Have player perform Action
@@ -123,7 +124,7 @@ for i = 1, nEpisodes do
 	  print("I RECIEVED" .. reception2)
 
     s = mysplit(reception2, ',')
-    newScore = table.remove(s)
+    newScore = tonumber(table.remove(s))
     -- Score based on how well the action performed
     local r = environ.calculateReward(newScore, oldScore) -- r comes from score function f(s)
 

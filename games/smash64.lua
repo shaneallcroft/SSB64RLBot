@@ -1270,7 +1270,7 @@ function Game.eachFrame()
 	--local oldS = s
     --local oldScore = smash64.score_points
 	a = reception
-
+	print(a)
 	-- Perform Action A[aIndex]
 	--mapping action to actual controller input
 	
@@ -1278,85 +1278,85 @@ function Game.eachFrame()
 	
 	pad_input[a] = true
 	
-	
+	a = 'down half'
 	if a == 'no input' then
 		pad_input = {}
 	elseif a == 'up full' then
-		pad_input['Y Axis'] = 1.0
+		pad_input['P1 Y Axis'] = 1.0
 	elseif a == 'up half' then
-		pad_input['Y Axis'] = 0.5
+		pad_input['P1 Y Axis'] = 0.5
 	elseif a == 'up right full' then
-		pad_input['X Axis'] = 1.0
-		pad_input['Y Axis'] = 1.0
+		pad_input['P1 X Axis'] = 1.0
+		pad_input['P1 Y Axis'] = 1.0
 	elseif a == 'up right half' then
-		pad_input['X Axis'] = 0.5
-		pad_input['Y Axis'] = 0.5
+		pad_input['P1 X Axis'] = 0.5
+		pad_input['P1 Y Axis'] = 0.5
 	elseif a == 'right full' then
-		pad_input['X Axis'] = 1.0
+		pad_input['P1 X Axis'] = 1.0
 	elseif a == 'right half' then
-		pad_input['X Axis'] = 0.5
+		pad_input['P1 X Axis'] = 0.5
 	elseif a == 'down right full' then
-		pad_input['X Axis'] = 1.0
-		pad_input['Y Axis'] = -1.0
+		pad_input['P1 X Axis'] = 1.0
+		pad_input['P1 Y Axis'] = -1.0
 	elseif a == 'down right half' then
 		pad_input['X Axis'] = 0.5
-		pad_input['Y Axis'] = -0.5
+		pad_input['P1 Y Axis'] = -0.5
 	elseif a == 'down full' then
-		pad_input['Y Axis'] = -1.0
+		pad_input['P1 Y Axis'] = -1.0
 	elseif a == 'down half' then
-		pad_input['Y Axis'] = -0.5
+		pad_input['P1 Y Axis'] = -0.5
 	elseif a == 'down left full' then
-		pad_input['X Axis'] = -1.0
-		pad_input['Y Axis'] = -1.0
+		pad_input['P1 X Axis'] = -1.0
+		pad_input['P1 Y Axis'] = -1.0
 	elseif a == 'down left half' then
-		pad_input['X Axis'] = -0.5
-		pad_input['Y Axis'] = -0.5
+		pad_input['P1 X Axis'] = -0.5
+		pad_input['P1 Y Axis'] = -0.5
 	elseif a == 'left full' then
-		pad_input['X Axis'] = -1.0
+		pad_input['P1 X Axis'] = -1.0
 	elseif a == 'left half' then
-		pad_input['X Axis'] = -0.5
+		pad_input['P1 X Axis'] = -0.5
 	elseif a == 'up left full' then
-		pad_input['X Axis'] = -1.0
-		pad_input['Y Axis'] = 1.0
+		pad_input['P1 X Axis'] = -1.0
+		pad_input['P1 Y Axis'] = 1.0
 	elseif a == 'up left half' then
-		pad_input['X Axis'] = -0.5
-		pad_input['Y Axis'] = 0.5
+		pad_input['P1 X Axis'] = -0.5
+		pad_input['P1 Y Axis'] = 0.5
 	elseif a == 'A + up full' then
 		pad_input['P1 A'] = true
-		pad_input['Y Axis'] = 1.0
+		pad_input['P1 Y Axis'] = 1.0
 	elseif a == 'A + up half' then
 		pad_input['P1 A'] = true
-		pad_input['Y Axis'] = 0.5
+		pad_input['P1 Y Axis'] = 0.5
 	elseif a == 'A + right full' then
 		pad_input['P1 A'] = true
-		pad_input['X Axis'] = 1.0
+		pad_input['P1 X Axis'] = 1.0
 	elseif a == 'A + right half' then
 		pad_input['P1 A'] = true
-		pad_input['X Axis'] = 0.5
+		pad_input['P1 X Axis'] = 0.5
 	elseif a == 'A + down full' then 
 		pad_input['P1 A'] = true
-		pad_input['Y Axis'] = -1.0
+		pad_input['P1 Y Axis'] = -1.0
 	elseif a == 'A + down half' then
 		pad_input['P1 A'] = true
-		pad_input['Y Axis'] = -0.5
+		pad_input['P1 Y Axis':'-0.5'] = true
 	elseif a == 'A + left full' then
 		pad_input['P1 A'] = true
-		pad_input['X Axis'] = -1.0
+		pad_input['P1 X Axis'] = -1.0
 	elseif a == 'A + left half' then
 		pad_input['P1 A'] = true
-		pad_input['X Axis'] = -0.5
+		pad_input['P1 X Axis'] = -0.5
 	elseif a == 'B + up full' then
 		pad_input['P1 B'] = true
-		pad_input['Y Axis'] = 1.0
+		pad_input['P1 Y Axis'] = 1.0
 	elseif a == 'B + down full' then
 		pad_input['P1 B'] = true
-		pad_input['Y Axis'] = -1.0
+		pad_input['P1 Y Axis'] = -1.0
 	elseif a == 'Z + right full' then
 		pad_input['P1 Z'] = true
-		pad_input['X Axis'] = -1.0
+		pad_input['P1 X Axis'] = -1.0
 	elseif a == 'Z + left full' then
 		pad_input['P1 Z'] = true
-		pad_input['X Axis'] = 1.0
+		pad_input['P1 X Axis'] = 1.0
 	else
 		pad_input[a] = true
 	end
