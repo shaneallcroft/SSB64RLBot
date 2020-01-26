@@ -1169,6 +1169,8 @@ local socket = require("socket")
 local tcp = assert(socket.tcp())
 
 tcp:connect(host, port);
+enemy_facing = 0
+self_facing = 0
 
 function Game.scoreCompare()
 		score_points = score_points - 1
@@ -1253,14 +1255,18 @@ function Game.eachFrame()
 		--Game.printDat();
 	end
 	
-	tcp:send(score_points .. "," .. self_deaths .. "," .. self_percent .. "," .. self_x .. "," .. self_y .. "," .. self_xvel .. "," .. self_yvel .. "," .. self_facing .. "," .. enemy_deaths .. "," .. enemy_percent .. "," .. enemy_x .. "," .. enemy_y .. "," .. enemy_xvel .. "," .. enemy_yvel .. "," .. enemy_facing .. "," .. enemy_name)
-	
+	print("preprepog")
+	tcp:send(score_points .. "," .. self_deaths .. "," .. self_percent .. "," .. self_x .. "," .. self_y .. "," .. self_xvel .. "," .. self_yvel .. "," .. self_facing .. "," .. enemy_deaths .. "," .. enemy_percent .. "," .. enemy_x .. "," .. enemy_y .. "," .. enemy_xvel .. "," .. enemy_yvel .. "," .. enemy_facing .. "," .. enemy_name .. "\n")
+	--tcp:send("hiIIIIIIIII,IIIIIII,IIIIIII,IIIIIIIII,IIIIIIIIIII,IIIIIIIIIIIII,IIIIIIIIII,I\n")
+	print("pre1pog")
 	reception = nil
+	print("prepog")
 	while (reception == nil) do
+		tcp:settimeout(1)
 		reception = tcp:receive()
 		--print (reception)
 	end
-	
+	print("pog")
 	--local oldS = s
     --local oldScore = smash64.score_points
 	a = reception

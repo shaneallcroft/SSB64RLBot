@@ -11,6 +11,8 @@ local ip, port = server:getsockname()
 print("ip:" .. ip)
 print("port:" .. port)
 
+local client = server:accept() --wait for the client to connect
+
 function mysplit (inputstr, sep)
         if sep == nil then
                 sep = "%s"
@@ -21,8 +23,6 @@ function mysplit (inputstr, sep)
         end
         return t
 end
-
-local client = server:accept() --wait for the client to connect
 
 -- Set manual seed
 torch.manualSeed(1)
@@ -83,7 +83,7 @@ for i = 1, nEpisodes do
 		  print("FIRST I RECIEVED" .. reception)
 
 
-  s = mysplit(reception, ',')
+  s = reception:split(',')
   -- Experience tuples (s, a, r)
   local E = {}
   -- {bot death state, bot damage taken, bot x pos, bot y, bot xvel, bot yvel, } 
@@ -122,7 +122,7 @@ for i = 1, nEpisodes do
 	  end
 	  print("I RECIEVED" .. reception2)
 
-    s = mysplit(reception2, ',')
+    s = reception2:split(',')
     newScore = table.remove(s)
     -- Score based on how well the action performed
     local r = environ.calculateReward(newScore, oldScore) -- r comes from score function f(s)
