@@ -1263,14 +1263,18 @@ function Game.eachFrame()
 	
 	--local oldS = s
     --local oldScore = smash64.score_points
-	a = 'A + right full'
+	a = 'P1 A'
 
 	-- Perform Action A[aIndex]
 	--mapping action to actual controller input
 	
 	pad_input = {}
-	if a == 'no pad_input' then
-		pad_input[a] = false
+	
+	pad_input[a] = true
+	
+	
+	if a == 'no input' then
+		pad_input = {}
 	elseif a == 'up full' then
 		pad_input['Y Axis'] = 1.0
 	elseif a == 'up half' then
@@ -1350,6 +1354,7 @@ function Game.eachFrame()
 	else
 		pad_input[a] = true
 	end
+	
 	
 	joypad.set(pad_input)
 

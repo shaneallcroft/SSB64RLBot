@@ -5,7 +5,6 @@ if type(ScriptHawk) ~= "table" then
 	return;
 end
 
-local joypad = require 'joypad'
 local Game = {
 	speedy_speeds = { .1, 1, 5, 10, 20, 35, 50, 75, 100 };
 	speedy_index = 6;
@@ -1264,12 +1263,16 @@ function Game.eachFrame()
 	
 	--local oldS = s
     --local oldScore = smash64.score_points
-	a = 'A + right full'
+	a = 'P1 A'
 
 	-- Perform Action A[aIndex]
 	--mapping action to actual controller input
 	
 	pad_input = {}
+	
+	pad_input[a] = true
+	
+	--[[
 	if a == 'no pad_input' then
 		pad_input[a] = false
 	elseif a == 'up full' then
@@ -1351,6 +1354,7 @@ function Game.eachFrame()
 	else
 		pad_input[a] = true
 	end
+	--]]
 	
 	joypad.set(pad_input)
 
