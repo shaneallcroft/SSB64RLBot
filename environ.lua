@@ -85,8 +85,13 @@ end
 ]]--
 
 -- Calculates if the current state is terminal given previous action and reward
-environ.isTerminal = function(a, r)
-  return a == 'stick' or r == -1
+environ.isTerminal = function(s, a, r)
+  -- if self_deaths or enemy_deaths
+  if s[0] >= 1 or s[6] >= 1 then
+    return true
+  else
+    return false
+  end
 end
 
 environ.cartesianDistanceFromEnemy = function()

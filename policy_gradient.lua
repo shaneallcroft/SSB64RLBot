@@ -103,7 +103,7 @@ for i = 1, nEpisodes do
 
     -- Linearly decay ɛ
     epsilon = math.max(epsilon - epsilonDecay, epsilonMin)
-  until environ.isTerminal(a, r)
+  until environ.isTerminal(s, a, r)
   
   -- Save result of episode
   results[i] = E[#E][3]
