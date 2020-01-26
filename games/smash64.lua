@@ -1169,6 +1169,12 @@ enemy_name = Game.getCharacter(player_enemy)
 test_itr = 0
 difficulty = 1
 
+local host, port = "127.0.0.1", 51111
+local socket = require("socket")
+local tcp = assert(socket.tcp())
+
+tcp:connect(host, port);
+
 function Game.scoreCompare()
 		score_points = score_points - 1
 		self_difference_hp = mainmemory.read_s32_be(0x0A4D74) - self_percent
@@ -1244,7 +1250,7 @@ function Game.printDat()
 	print("")
 end
 	
-function Game.eachFrame()
+function Game.eachFrame()		
 	Game.scoreCompare();
 	
 	--local oldS = s
@@ -1342,6 +1348,13 @@ function Game.eachFrame()
 		--Game.printDat();
 	end
 	
+	tcp:send("MESSAGE HERE. DEDET")
+	
+	reception = nil
+	while (reception == nil) do
+		reception = tcp:receive()
+		print (reception)
+	end
 
 	if ScriptHawk.UI.ischecked("toggle_hitboxes") then
 		Game.hitboxWasChecked = true;
