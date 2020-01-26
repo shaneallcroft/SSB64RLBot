@@ -1223,7 +1223,7 @@ function Game.updateDat()
 	
 	if self_deaths >= 1 or enemy_deaths >= 1 then
 	
-		local filename = "..\\N64\\State\\" .. Game.characters[test_itr] .. "_" .. difficulty .. ".State"
+		local filename = "N64\\State\\" .. Game.characters[test_itr] .. "_" .. difficulty .. ".State"
 		savestate.load(filename);
 		mainmemory.write_s32_be(0x133420, 0)
 		test_itr = test_itr + 1
@@ -1246,13 +1246,14 @@ end
 	
 function Game.eachFrame()
 	Game.scoreCompare();
-	--[[
+	
 	--local oldS = s
     --local oldScore = smash64.score_point	
 	a = nil
 
 	-- Perform Action A[aIndex]
 	--mapping action to actual controller input
+			--[[
 	input = {}
 	if a == 'no input' then
 		input[a] = false
