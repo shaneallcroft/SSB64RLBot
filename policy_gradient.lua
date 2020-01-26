@@ -2,6 +2,8 @@ local _ = require 'moses'
 local nn = require 'nn'
 local gnuplot = require 'gnuplot'
 local environ = require 'environ'
+local smash64 = require 'smash64'
+local socket = require("socket")
 
 -- Set manual seed
 torch.manualSeed(1)
@@ -55,14 +57,18 @@ local results = torch.Tensor(nEpisodes)
 
 -- Sample
 for i = 1, nEpisodes do
-  
-  -- Get State from server
+  --TODO: Start new game and load the new game's first state accordingly 
+  local server = assert(socket.bind("*", 0))
+  local ip, port = server:getsockname()
+  print("ip:" .. ip)
+  print("port:" .. port)
 
+  local client = server:accept() --wait for the client to connect
+  local line = client:recieve()
+  s = split(line, ',')
   -- Experience tuples (s, a, r)
   local E = {}
-  -- {bot death state, bot damage taken, bot x pos, bot y, bot xvel, bot yvel, }
-  local s = { self_deaths, self_percent, self_x, self_y, self_xvel, self_yvel, 
-              enemy_deaths, enemy_percent, enemy_x, enemy_y, enemy_xvel, enemy_yvel, enemy_name} 
+  -- {bot death state, bot damage taken, bot x pos, bot y, bot xvel, bot yvel, } 
   
   -- Run till termination
   repeat
@@ -81,22 +87,19 @@ for i = 1, nEpisodes do
     local a = environ.A[aIndex]
 
     local oldS = s
-    local oldScore = -- Get score from server above 
+    local oldScore = s-- Get score from server above 
     -- Perform a step
 
     -- Have player perform Action
 
     -- Send Action to server
-
+    client:send(a)
     -- Wait and Recieve new state from server
-
+    local line = client:recieve()
     -- Set new s based on new Action
-    s = { self_deaths, self_percent, self_x, self_y, self_xvel, self_yvel, 
-              enemy_deaths, enemy_percent, enemy_x, enemy_y, enemy_xvel, enemy_yvel, enemy_name} 
-
-
+    s = split(line, ',')
     -- Score based on how well the action performed
-    local sPrime, r = environ.step(s, a, oldScore) -- r comes from score function f(s)
+    local r = environ.calculateReward(newScore, oldScore) -- r comes from score function f(s)
 
     -- Store experience tuple
     table.insert(E, {oldS, a, r})
