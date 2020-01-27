@@ -1223,9 +1223,10 @@ function Game.updateDat()
 	enemy_name = Game.getCharacter(player_enemy)
 	self_facing = Game.getYRotation(player_self)
 	enemy_facing = Game.getYRotation(player_enemy)
-	
+	io.open("chungus.txt", "a")
+	io.write("fuuuck hahahhaha")
 	if self_deaths >= 1 or enemy_deaths >= 1 then
-	
+		
 		local filename = "N64\\State\\" .. Game.characters[test_itr] .. "_" .. difficulty .. ".State"
 		savestate.load(filename);
 		mainmemory.write_s32_be(0x133420, 0)
@@ -1277,94 +1278,94 @@ function Game.eachFrame()
 	pad_input = {}
 	
 	pad_input[a] = true
-	
-	a = 'down half'
+	X_val = 0.0
+	Y_val = 0.0
+	--a = 'down half'
 	if a == 'no input' then
 		pad_input = {}
 	elseif a == 'up full' then
-		pad_input['P1 Y Axis'] = 1.0
+		Y_val = 1.0
 	elseif a == 'up half' then
-		pad_input['P1 Y Axis'] = 0.5
+		Y_val = 0.5
 	elseif a == 'up right full' then
-		pad_input['P1 X Axis'] = 1.0
-		pad_input['P1 Y Axis'] = 1.0
+		X_val = 1.0
+		Y_val = 1.0
 	elseif a == 'up right half' then
-		pad_input['P1 X Axis'] = 0.5
-		pad_input['P1 Y Axis'] = 0.5
+		X_val = 0.5
+		Y_val = 0.5
 	elseif a == 'right full' then
-		pad_input['P1 X Axis'] = 1.0
+		X_val = 1.0
 	elseif a == 'right half' then
-		pad_input['P1 X Axis'] = 0.5
+		X_val = 0.5
 	elseif a == 'down right full' then
-		pad_input['P1 X Axis'] = 1.0
-		pad_input['P1 Y Axis'] = -1.0
+		X_val = 1.0
+		Y_val = -1.0
 	elseif a == 'down right half' then
-		pad_input['X Axis'] = 0.5
-		pad_input['P1 Y Axis'] = -0.5
+		X_val = 0.5
+		Y_val = -0.5
 	elseif a == 'down full' then
-		pad_input['P1 Y Axis'] = -1.0
+		Y_val = -1.0
 	elseif a == 'down half' then
-		pad_input['P1 Y Axis'] = -0.5
+		Y_val = -0.5
 	elseif a == 'down left full' then
-		pad_input['P1 X Axis'] = -1.0
-		pad_input['P1 Y Axis'] = -1.0
+		X_val = -1.0
+		Y_val = -1.0
 	elseif a == 'down left half' then
-		pad_input['P1 X Axis'] = -0.5
-		pad_input['P1 Y Axis'] = -0.5
+		X_val = -0.5
+		Y_val = -0.5
 	elseif a == 'left full' then
-		pad_input['P1 X Axis'] = -1.0
+		X_val = -1.0
 	elseif a == 'left half' then
-		pad_input['P1 X Axis'] = -0.5
+		X_val = -0.5
 	elseif a == 'up left full' then
-		pad_input['P1 X Axis'] = -1.0
-		pad_input['P1 Y Axis'] = 1.0
+		X_val = -1.0
+		Y_val = 1.0
 	elseif a == 'up left half' then
-		pad_input['P1 X Axis'] = -0.5
-		pad_input['P1 Y Axis'] = 0.5
+		X_val = -0.5
+		Y_val = 0.5
 	elseif a == 'A + up full' then
 		pad_input['P1 A'] = true
-		pad_input['P1 Y Axis'] = 1.0
+		Y_val = 1.0
 	elseif a == 'A + up half' then
 		pad_input['P1 A'] = true
-		pad_input['P1 Y Axis'] = 0.5
+		Y_val = 0.5
 	elseif a == 'A + right full' then
 		pad_input['P1 A'] = true
-		pad_input['P1 X Axis'] = 1.0
+		X_val = 1.0
 	elseif a == 'A + right half' then
 		pad_input['P1 A'] = true
-		pad_input['P1 X Axis'] = 0.5
+		X_val = 0.5
 	elseif a == 'A + down full' then 
 		pad_input['P1 A'] = true
-		pad_input['P1 Y Axis'] = -1.0
+		Y_val = -1.0
 	elseif a == 'A + down half' then
 		pad_input['P1 A'] = true
-		pad_input['P1 Y Axis':'-0.5'] = true
+		Y_val = -0.5
 	elseif a == 'A + left full' then
 		pad_input['P1 A'] = true
-		pad_input['P1 X Axis'] = -1.0
+		X_val = -1.0
 	elseif a == 'A + left half' then
 		pad_input['P1 A'] = true
-		pad_input['P1 X Axis'] = -0.5
+		X_val = -0.5
 	elseif a == 'B + up full' then
 		pad_input['P1 B'] = true
-		pad_input['P1 Y Axis'] = 1.0
+		Y_val = 1.0
 	elseif a == 'B + down full' then
 		pad_input['P1 B'] = true
-		pad_input['P1 Y Axis'] = -1.0
+		Y_val = -1.0
 	elseif a == 'Z + right full' then
 		pad_input['P1 Z'] = true
-		pad_input['P1 X Axis'] = -1.0
+		X_val = -1.0
 	elseif a == 'Z + left full' then
 		pad_input['P1 Z'] = true
-		pad_input['P1 X Axis'] = 1.0
+		X_val = 1.0
 	else
 		pad_input[a] = true
 	end
+	joypad.set(pad_input, 1)
 	
-	
-	joypad.set(pad_input)
-
-	
+	local analogs = { ["P1 X Axis"] = X_val, ["P1 Y Axis"] = Y_val}
+	joypad.setanalog(X_val, Y_val)
 
 	if ScriptHawk.UI.ischecked("toggle_hitboxes") then
 		Game.hitboxWasChecked = true;
