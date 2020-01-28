@@ -5,6 +5,7 @@ local environ = require 'environ'
 local socket = require 'socket'
 local string = require 'string'
 local newScore = 0
+local s = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 --local os = require 'os'
 
 local server = assert(socket.bind("*", 51111))
@@ -12,15 +13,11 @@ local ip, port = server:getsockname()
 print("ip:" .. ip)
 print("port:" .. port)
 
-function mysplit (inputstr, sep)
-        if sep == nil then
-                sep = "%s"
-        end
-        local t={}
-        for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-                table.insert(t, str)
-        end
-        return t
+function split(s, delimiter) 
+  result = {}; 
+  for match in (s..delimiter):gmatch("(.-)"..delimiter) do 
+    table.insert(result, match); 
+  end return result; 
 end
 
 local client = server:accept() --wait for the client to connect
@@ -83,12 +80,10 @@ for i = 1, nEpisodes do
 	end
 		  print("FIRST I RECIEVED" .. reception)
 
-
-  s = mysplit(reception, ',')
   -- Experience tuples (s, a, r)
   local E = {}
   -- {bot death state, bot damage taken, bot x pos, bot y, bot xvel, bot yvel, } 
-  
+  s = split(reception, ',')
   -- Run till termination
   repeat
     -- Choose action by ɛ-greedy exploration
@@ -123,17 +118,24 @@ for i = 1, nEpisodes do
 	  end
 	  print("I RECIEVED" .. reception2)
 
-    s = mysplit(reception2, ',')
+    s = split(reception2, ',')
+    print("s: ")
+    print(s)
     newScore = tonumber(table.remove(s))
+
+    print("score: ")
+    print(newScore)
     -- Score based on how well the action performed
     local r = environ.calculateReward(newScore, oldScore) -- r comes from score function f(s)
 
     -- Store experience tuple
     table.insert(E, {oldS, a, r})
 
-    -- Linearly decay ɛ
+    -- Linearly decay ɛ"
     epsilon = math.max(epsilon - epsilonDecay, epsilonMin)
-  until environ.isTerminal(s, a, r)
+    print(s[0])
+    print('Fcuk')
+  until environ.isTerminal(s)
   
   -- Save result of episode
   results[i] = E[#E][3]

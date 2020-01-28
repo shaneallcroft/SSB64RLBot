@@ -3,8 +3,8 @@ local math = require "math"
 -- States are a tuple of dealer's first card (1-10) and the player's sum
 -- Set of actions
 
-environ.A = {'no input', 'P1 A', 'P1 B', 'P1 R', 'P1 Z', 'up full', 'up half', 'up right full', 'up right half', 'right full', 'right half', 'down right full', 'down right half', 'down full', 'down half', 'down left full', 'down left half', 'left full', 'left half', 'up left full', 'up left half', 'A + up full', 'A + up half', 'A + right full', 'A + right half', 'A + down full', 'A + down half', 'A + left full', 'A + left half', 'B + up full', 'B + down full', 'Z + left full', 'Z + right full'} --rolling
--- 33 possible actions
+environ.A = {'no input', 'P1 A', 'P1 B', 'P1 R', 'P1 Z', 'up full', 'up right full', 'right full', 'down right full', 'down full', 'down left full', 'left full', 'up left full', 'A + up full', 'A + right full',  'A + down full', 'A + left full', 'B + up full', 'B + down full', 'Z + left full', 'Z + right full'} --rolling
+-- 21 possible actions
 -- State transitions are not explicitly stored
 
 -- Draws a card (with replacement)
@@ -81,9 +81,9 @@ end
 ]]--
 
 -- Calculates if the current state is terminal given previous action and reward
-environ.isTerminal = function(s, a, r)
+environ.isTerminal = function(s)
   -- if self_deaths or enemy_deaths
-  if s[0] >= 1 or s[6] >= 1 then
+  if tonumber(s[0]) >= 1 or tonumber(s[8]) >= 1 then
     return true
   else
     return false
