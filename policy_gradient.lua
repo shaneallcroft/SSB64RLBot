@@ -13,11 +13,23 @@ local ip, port = server:getsockname()
 print("ip:" .. ip)
 print("port:" .. port)
 
-function split(s, delimiter) 
-  result = {}; 
-  for match in (s..delimiter):gmatch("(.-)"..delimiter) do 
-    table.insert(result, match); 
-  end return result; 
+function split(pString, pPattern)
+  local Table = {}  -- NOTE: use {n = 0} in Lua-5.0
+  local fpat = "(.-)" .. pPattern
+  local last_end = 1
+  local s, e, cap = pString:find(fpat, 1)
+  while s do
+     if s ~= 1 or cap ~= "" then
+    table.insert(Table,cap)
+     end
+     last_end = e+1
+     s, e, cap = pString:find(fpat, last_end)
+  end
+  if last_end <= #pString then
+     cap = pString:sub(last_end)
+     table.insert(Table, cap)
+  end
+  return Table
 end
 
 local client = server:accept() --wait for the client to connect
@@ -83,7 +95,7 @@ for i = 1, nEpisodes do
   -- Experience tuples (s, a, r)
   local E = {}
   -- {bot death state, bot damage taken, bot x pos, bot y, bot xvel, bot yvel, } 
-  s = split(reception, ',')
+  s = split(reception, '\,')
   -- Run till termination
   repeat
     -- Choose action by ɛ-greedy exploration
@@ -118,7 +130,7 @@ for i = 1, nEpisodes do
 	  end
 	  print("I RECIEVED" .. reception2)
 
-    s = split(reception2, ',')
+    s = split(reception2, '\,')
     print("s: ")
     print(s)
     newScore = tonumber(table.remove(s))
