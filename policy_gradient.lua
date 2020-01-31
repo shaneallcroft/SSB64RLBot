@@ -4,7 +4,7 @@ local gnuplot = require 'gnuplot'
 local environ = require 'environ'
 local socket = require 'socket'
 local string = require 'string'
-local newScore = 0
+local newScore = -1
 local s = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 --local os = require 'os'
 
@@ -33,6 +33,10 @@ function split(pString, pPattern)
 end
 
 local client = server:accept() --wait for the client to connect
+
+-- Load Q* from MC control
+local QStar = torch.load('Q.t7')
+local V = torch.max(QStar, 3):squeeze()
 
 -- Set manual seed
 torch.manualSeed(1)
@@ -83,20 +87,21 @@ local results = torch.Tensor(nEpisodes)
 for i = 1, nEpisodes do
   --TODO: Start new game and load the new game's first state accordingly 
   local reception = nil
-  		print("FIRST NOW RECIEVING")
 
 	while (reception == nil) do
 		client:settimeout(1)
 		reception = client:receive()
-		print (reception)
+		--print (reception)
 	end
-		  print("FIRST I RECIEVED" .. reception)
+		  --print("FIRST I RECIEVED" .. reception)
 
   -- Experience tuples (s, a, r)
   local E = {}
   -- {bot death state, bot damage taken, bot x pos, bot y, bot xvel, bot yvel, } 
-  s = split(reception, '\,')
+
+  s = split(reception, ",")
   -- Run till termination
+  newScore = 0
   repeat
     -- Choose action by ɛ-greedy exploration
     local aIndex
@@ -111,6 +116,7 @@ for i = 1, nEpisodes do
       aIndex = torch.random(1, m)
     end
     local a = environ.A[aIndex]
+    --print(a)
 
     local oldS = s
     local oldScore = newScore-- before newScore actually gets updated put it in old score 
@@ -122,32 +128,27 @@ for i = 1, nEpisodes do
     client:send(a .. "\n")
     -- Wait and Recieve new state from server
     local reception2 = nil
-		print("NOW RECIEVING")
 	  while (reception2 == nil) do
 		client:settimeout(1)
 		reception2 = client:receive()
 		--print (reception)
 	  end
-	  print("I RECIEVED" .. reception2)
+	   --print("I RECIEVED" .. reception2)
 
-    s = split(reception2, '\,')
-    print("s: ")
-    print(s)
-    newScore = tonumber(table.remove(s))
-
-    print("score: ")
-    print(newScore)
+    s = split(reception2, ',')
+    newScore = tonumber(table.remove(s, 1))
     -- Score based on how well the action performed
     local r = environ.calculateReward(newScore, oldScore) -- r comes from score function f(s)
 
     -- Store experience tuple
-    table.insert(E, {oldS, a, r})
+    table.insert(E,  {oldS, a, r})
 
     -- Linearly decay ɛ"
     epsilon = math.max(epsilon - epsilonDecay, epsilonMin)
-    print(s[0])
-    print('Fcuk')
-  until environ.isTerminal(s)
+  print(s[1] .. '\n')
+  print(s[8] .. '\n')
+  print(newScore)
+  until environ.isTerminal(s[1], s[8])
   
   -- Save result of episode
   results[i] = E[#E][3]
@@ -166,7 +167,9 @@ for i = 1, nEpisodes do
     -- Calculate variance-reduced reward (advantage) ∑t r - b(s) = ∑t r - V(s) = A
     local A = 0
     for k = j, #E do
+      print("pog")
       A = A + (E[k][3] - V[s[1]][s[2]])
+      print("champ")
     end
 
     -- Use a policy gradient update (REINFORCE rule): ∇θ Es[f(s)] = ∇θ ∑s p(s)f(s) = Es[f(s) ∇θ logp(s)]

@@ -36,7 +36,7 @@ end
 -- Perform a step in the environment
 environ.calculateReward = function(newScore, oldScore)
   -- Enemy Death * (11000) + Self Death * (-10000) + Enemy Percent * (300) + Self Percent * (-143) + Self Destruct * (-30000) + 
-  local r = newScore - oldScore
+  local r = tonumber(newScore) - tonumber(oldScore)
 
   return r
 end
@@ -81,9 +81,9 @@ end
 ]]--
 
 -- Calculates if the current state is terminal given previous action and reward
-environ.isTerminal = function(s)
+environ.isTerminal = function(self_deaths, enemy_deaths)
   -- if self_deaths or enemy_deaths
-  if tonumber(s[0]) >= 1 or tonumber(s[8]) >= 1 then
+  if tonumber(self_deaths) >= 1 or tonumber(enemy_deaths) >= 1 then
     return true
   else
     return false

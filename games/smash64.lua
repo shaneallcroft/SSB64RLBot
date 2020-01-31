@@ -1164,6 +1164,8 @@ enemy_name = Game.getCharacter(player_enemy)
 test_itr = 0
 difficulty = 1
 
+savestate.load("N64\\State\\Samus_1.State");
+
 local host, port = "127.0.0.1", 51111
 local socket = require("socket")
 local tcp = assert(socket.tcp())
@@ -1223,14 +1225,13 @@ function Game.updateDat()
 	enemy_name = Game.getCharacter(player_enemy)
 	self_facing = Game.getYRotation(player_self)
 	enemy_facing = Game.getYRotation(player_enemy)
-	file = assert(io.open("chungus.txt", "w+"))
-	file:write("fuuuck hahahhaha\n")
-	file:flush()
+	--print("enemy deaths: " .. enemy_deaths .. '\n')
 	if self_deaths >= 1 or enemy_deaths >= 1 then
 		
 		local filename = "N64\\State\\" .. Game.characters[test_itr] .. "_" .. difficulty .. ".State"
+		--tcp:send(score_points .. "," .. self_deaths .. "," .. self_percent .. "," .. self_x .. "," .. self_y .. "," .. self_xvel .. "," .. self_yvel .. "," .. self_facing .. "," .. enemy_deaths .. "," .. enemy_percent .. "," .. enemy_x .. "," .. enemy_y .. "," .. enemy_xvel .. "," .. enemy_yvel .. "," .. enemy_facing .. "," .. enemy_name .. "\n")
 		savestate.load(filename);
-		mainmemory.write_s32_be(0x133420, 0)
+		score_points = 0
 		test_itr = test_itr + 1
 		if test_itr == 12 then
 			difficulty = difficulty + 1
@@ -1251,28 +1252,24 @@ end
 	
 function Game.eachFrame()		
 	Game.scoreCompare();
-	
 	Game.updateDat();
 	if(frameCount%300==0) then
 		--Game.printDat();
 	end
 	
-	print("preprepog")
+	--print("enemy_deaths sending: " .. enemy_deaths)
 	tcp:send(score_points .. "," .. self_deaths .. "," .. self_percent .. "," .. self_x .. "," .. self_y .. "," .. self_xvel .. "," .. self_yvel .. "," .. self_facing .. "," .. enemy_deaths .. "," .. enemy_percent .. "," .. enemy_x .. "," .. enemy_y .. "," .. enemy_xvel .. "," .. enemy_yvel .. "," .. enemy_facing .. "," .. enemy_name .. "\n")
-	--tcp:send("hiIIIIIIIII,IIIIIII,IIIIIII,IIIIIIIII,IIIIIIIIIII,IIIIIIIIIIIII,IIIIIIIIII,I\n")
-	print("pre1pog")
 	reception = nil
-	print("prepog")
 	while (reception == nil) do
 		tcp:settimeout(1)
 		reception = tcp:receive()
 		--print (reception)
 	end
-	print("pog")
+	
 	--local oldS = s
     --local oldScore = smash64.score_points
 	a = reception
-	print(a)
+	--print(a)
 	-- Perform Action A[aIndex]
 	--mapping action to actual controller input
 	
@@ -1282,56 +1279,53 @@ function Game.eachFrame()
 	if a == 'no input' then
 		pad_input = {}
 	elseif a == 'up full' then
-		pad_input['A Up'] = true
+		pad_input['P1 A Up'] = true
 	elseif a == 'up right full' then
-		pad_input['A Right'] = true
-		pad_input['A Up'] = true
+		pad_input['P1 A Right'] = true
+		pad_input['P1 A Up'] = true
 	elseif a == 'right full' then
-		pad_input['A Right'] = true
+		pad_input['P1 A Right'] = true
 	elseif a == 'down right full' then
-		pad_input['A Right'] = true
-		pad_input['A Down'] = true
+		pad_input['P1 A Right'] = true
+		pad_input['P1 A Down'] = true
 	elseif a == 'down full' then
-		pad_input['A Down'] = true
+		pad_input['P1 A Down'] = true
 	elseif a == 'down left full' then
-		pad_input['A Left'] = true
-		pad_input['A Down'] = true
+		pad_input['P1 A Left'] = true
+		pad_input['P1 A Down'] = true
 	elseif a == 'left full' then
-		pad_input['A Left'] = true
+		pad_input['P1 A Left'] = true
 	elseif a == 'up left full' then
-		pad_input['A Left'] = true
-		pad_input['A Up'] = true
+		pad_input['P1 A Left'] = true
+		pad_input['P1 A Up'] = true
 	elseif a == 'A + up full' then
 		pad_input['P1 A'] = true
-		pad_input['A Up'] = true
+		pad_input['P1 A Up'] = true
 	elseif a == 'A + right full' then
 		pad_input['P1 A'] = true
-		pad_input['A Right'] = true
+		pad_input['P1 A Right'] = true
 	elseif a == 'A + down full' then 
 		pad_input['P1 A'] = true
-		pad_input['A Down'] = true
+		pad_input['P1 A Down'] = true
 	elseif a == 'A + left full' then
 		pad_input['P1 A'] = true
-		pad_input['A Left'] = true
+		pad_input['P1 A Left'] = true
 	elseif a == 'B + up full' then
 		pad_input['P1 B'] = true
-		pad_input['A Up'] = true
+		pad_input['P1 A Up'] = true
 	elseif a == 'B + down full' then
 		pad_input['P1 B'] = true
-		pad_input['A Down'] = true
+		pad_input['P1 A Down'] = true
 	elseif a == 'Z + right full' then
 		pad_input['P1 Z'] = true
-		pad_input['A Right'] = true
+		pad_input['P1 A Right'] = true
 	elseif a == 'Z + left full' then
 		pad_input['P1 Z'] = true
-		pad_input['A Left'] = true
+		pad_input['P1 A Left'] = true
 	else
 		pad_input[a] = true
 	end
-	joypad.set(pad_input, 1)
-	file:write("Made it through the wall of elseif's\n")
-	file:flush()
-	io.flush()
+	joypad.set(pad_input)
 
 	if ScriptHawk.UI.ischecked("toggle_hitboxes") then
 		Game.hitboxWasChecked = true;
@@ -1340,9 +1334,7 @@ function Game.eachFrame()
 		Game.hitboxWasChecked = false;
 		Game.hideHitboxes();
 	end
-	file:write("Input successfully sent\n")
-	file:flush()
-	io.flush()
+
 	if ScriptHawk.UI.ischecked("Music Checkbox") then
 		local musicString = forms.gettext(ScriptHawk.UI.form_controls["Music Dropdown"]);
 		for i = 1, #Game.music do
